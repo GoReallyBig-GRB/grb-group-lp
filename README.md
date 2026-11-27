@@ -137,7 +137,7 @@ The Group landing page has a dedicated Cloudflare Pages project for staging:
 - **Pages project:** `grb-group-staging`
 - **Pages fallback:** `grb-group-staging.pages.dev`
 - **Source repository:** `GoReallyBig-GRB/grb-group-lp`
-- **Deployment branch:** `main` (changes to this branch automatically publish to staging)
+- **Deployment branch:** `staging` (changes to this branch automatically publish to staging; `main` is reserved for eventual production)
 - **Build:** static site with no build command; output directory `.`
 
 The root domain `goreallybig.com` is **not** connected to this staging Pages project. Staging is intended for pre-production checks. A separate production deployment and deliberate domain cutover will be needed when ready.
