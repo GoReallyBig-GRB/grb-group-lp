@@ -128,6 +128,20 @@ The root domain is being reassigned from the existing **GoReallyBig Websites** b
 - Test navigation and external links before each release.
 - Use pull-request review for material UI and production-domain changes; do not create deployment branches without project authorization.
 
+
+## Staging environment
+
+The Group landing page has a dedicated Cloudflare Pages project for staging:
+
+- **URL:** [staging.goreallybig.com](https://staging.goreallybig.com)
+- **Pages project:** `grb-group-staging`
+- **Pages fallback:** `grb-group-staging.pages.dev`
+- **Source repository:** `GoReallyBig-GRB/grb-group-lp`
+- **Deployment branch:** `main` (changes to this branch automatically publish to staging)
+- **Build:** static site with no build command; output directory `.`
+
+The root domain `goreallybig.com` is **not** connected to this staging Pages project. Staging is intended for pre-production checks. A separate production deployment and deliberate domain cutover will be needed when ready.
+
 ## Current project state
 
 The repository currently contains the landing page implementation and its visual assets on `main`. Before this documentation change, `README.md` was a short placeholder. Cloudflare Pages configuration, migration execution, production publication, and end-to-end browser acceptance are separate tasks to verify.
