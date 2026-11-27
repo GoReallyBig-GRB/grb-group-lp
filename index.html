@@ -1,0 +1,1005 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17177e">
+  <meta name="description" content="GoReallyBig. It's not just words. It's a way of life. Explore GoReallyBig Websites, JobPunter and Uuda Studio.">
+  <title>GoReallyBig — It's a way of life.</title>
+  <style>
+    :root{
+      --navy:#17177e;
+      --navy-2:#10105a;
+      --blue:#155eef;
+      --blue-2:#2d72ff;
+      --lime:#b7f000;
+      --lime-deep:#9dd600;
+      --cream:#f7f8fc;
+      --paper:#ffffff;
+      --ink:#0f1533;
+      --ink-soft:#5b627c;
+      --line:#e7eaf4;
+      --shadow:0 24px 60px rgba(16,22,64,.08);
+      --shadow-strong:0 32px 90px rgba(16,22,64,.16);
+      --radius-xl:34px;
+      --radius-lg:28px;
+      --radius-md:20px;
+      --wrap:min(1320px, calc(100% - 80px));
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:auto}
+    body{margin:0;background:linear-gradient(180deg,#fbfcff 0%,#f5f7fb 100%);color:var(--ink);font-family:Inter, Arial, Helvetica, sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+    h1,h2,h3,p{margin:0}
+    .wrap{width:var(--wrap);margin:auto}
+
+    .nav{
+      position:sticky;top:0;z-index:40;
+      backdrop-filter:blur(16px);
+      background:rgba(255,255,255,.78);
+      border-bottom:1px solid rgba(17,22,53,.07);
+    }
+    .nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(21,94,239,.18),transparent)}
+    .nav-in{height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{width:220px;flex:none}
+    .brand img{width:100%;height:auto}
+    .nav-links{display:flex;align-items:center;gap:14px;padding:6px;border:1px solid rgba(17,22,53,.06);background:rgba(255,255,255,.6);border-radius:999px;box-shadow:0 10px 30px rgba(11,18,58,.04)}
+    .nav-links a{padding:10px 16px;border-radius:999px;color:#4f5774;font-size:12px;font-weight:800;letter-spacing:.01em;transition:background-color .22s,color .22s, transform .22s}
+    .nav-links a:hover,.nav-links a.active{background:#eef3ff;color:var(--blue)}
+    .nav-menu{display:none;border:0;background:#fff;width:44px;height:44px;border-radius:14px;box-shadow:0 10px 26px rgba(16,22,64,.08);font-size:24px;color:var(--navy)}
+
+    .hero{
+      position:relative;overflow:hidden;color:#fff;
+      background:
+        radial-gradient(circle at 78% 22%, rgba(78,116,255,.35) 0%, transparent 24%),
+        radial-gradient(circle at 82% 60%, rgba(183,240,0,.14) 0%, transparent 23%),
+        linear-gradient(135deg,#0f1065 0%, #17177e 46%, #0c0f58 100%);
+      isolation:isolate;
+    }
+    .hero::before,.hero::after{content:"";position:absolute;border-radius:999px;filter:blur(80px);opacity:.55;pointer-events:none}
+    .hero::before{width:340px;height:340px;background:rgba(183,240,0,.16);left:-80px;top:180px}
+    .hero::after{width:380px;height:380px;background:rgba(65,123,255,.28);right:-80px;top:60px}
+    .hero-inner{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center;min-height:min(860px, calc(100svh - 84px));padding:58px 0 48px;position:relative;z-index:1}
+    .hero-copy{padding:58px 0 54px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--lime)}
+    .eyebrow::before{content:"";width:32px;height:1px;background:currentColor;opacity:.8}
+    h1{
+      margin-top:28px;
+      font-size:clamp(42px,5.35vw,81px);
+      letter-spacing:-.072em;
+      line-height:.98;
+      font-weight:900;
+      white-space:nowrap;
+    }
+    .hero-lede{margin-top:30px;font-size:clamp(24px,2.5vw,38px);font-weight:780;line-height:1.08;letter-spacing:-.05em;max-width:580px}
+    .hero-support{margin-top:22px;max-width:520px;font-size:17px;line-height:1.8;color:#d7ddfb}
+    .hero-support strong{color:#fff;font-weight:700}
+    .hero-cta-row{margin-top:34px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .button-primary,.button-secondary{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;font-size:14px;font-weight:850;letter-spacing:.01em;transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background-color .22s ease;
+    }
+    .button-primary{background:var(--lime);color:#131818;box-shadow:0 18px 35px rgba(183,240,0,.28)}
+    .button-primary:hover{transform:translateY(-2px);box-shadow:0 22px 40px rgba(183,240,0,.36)}
+    .button-secondary{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff}
+    .button-secondary:hover{transform:translateY(-2px);background:rgba(255,255,255,.1)}
+    .hero-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:38px}
+    .hero-meta-pill{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#d9def6}
+    .hero-stage{position:relative;min-height:690px;display:flex;align-items:flex-end;justify-content:center}
+    .hero-stage::before{content:"";position:absolute;inset:9% 8% 8%;border-radius:36px;background:linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.11);box-shadow:inset 0 1px 0 rgba(255,255,255,.16), 0 30px 90px rgba(0,4,45,.28)}
+    .hero-stage::after{content:"";position:absolute;left:12%;right:12%;bottom:0;height:14%;border-radius:50%;background:radial-gradient(circle, rgba(183,240,0,.26), rgba(183,240,0,0) 70%);filter:blur(26px)}
+    .hero-stage img{position:relative;z-index:1;width:100%;max-width:720px;max-height:680px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 32px 34px rgba(0,0,0,.22))}
+
+    .section{padding:128px 0;position:relative;overflow:hidden}
+    .section-head{display:flex;align-items:center;gap:14px}
+    .number{font-size:12px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:var(--blue)}
+    .dash{width:42px;height:1px;background:currentColor;opacity:.24}
+    .section-kicker{font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+
+    .origin{background:linear-gradient(180deg,#f7f8fd 0%,#f0f3fb 100%)}
+    .origin::before{content:"";position:absolute;right:-130px;top:-80px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle, rgba(23,23,126,.08), rgba(23,23,126,0) 70%)}
+    .origin-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:56px;align-items:center}
+    .origin-title{margin-top:34px;font-size:clamp(44px,5vw,84px);line-height:.96;letter-spacing:-.075em;font-weight:900;max-width:620px}
+    .copy{margin-top:28px;max-width:600px;color:var(--ink-soft);font-size:17px;line-height:1.85}
+    .copy p + p{margin-top:16px}
+    .origin-close{margin-top:28px;font-size:20px;font-weight:850;line-height:1.45;letter-spacing:-.03em;color:var(--navy)}
+    .origin-visual-shell{position:relative;padding:22px;border-radius:36px;background:linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.72));border:1px solid rgba(17,22,53,.06);box-shadow:var(--shadow)}
+    .origin-visual-shell::before{content:"";position:absolute;inset:8% 12%;border-radius:50%;background:radial-gradient(circle, rgba(21,94,239,.14), rgba(21,94,239,0) 72%)}
+    .origin-image{position:relative;min-height:520px;display:grid;place-items:center}
+    .origin-image img{position:relative;z-index:1;max-width:100%;max-height:540px;object-fit:contain;filter:drop-shadow(0 34px 28px rgba(9,13,72,.12))}
+
+    .businesses{background:#fff}
+    .businesses::before{content:"";position:absolute;left:-160px;bottom:-180px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle, rgba(183,240,0,.1), rgba(183,240,0,0) 72%)}
+    .businesses-title{margin-top:32px;font-size:clamp(40px,5.2vw,88px);line-height:.97;letter-spacing:-.075em;font-weight:900;white-space:nowrap}
+    .businesses-intro{margin-top:24px;max-width:760px;color:var(--ink-soft);font-size:18px;line-height:1.85}
+    .card-stack{margin-top:66px;display:grid;gap:30px}
+    .business-card{
+      position:relative;
+      display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+      min-height:520px;
+      overflow:hidden;
+      border-radius:32px;
+      border:1px solid rgba(17,22,53,.08);
+      box-shadow:var(--shadow);
+      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease, background-color .28s ease;
+      will-change:transform;
+    }
+    .business-card::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg, rgba(255,255,255,.12), transparent 38%);pointer-events:none}
+    @media (hover:hover){
+      .business-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-strong);border-color:rgba(21,94,239,.14)}
+      .business-card:hover .business-link span{transform:translate(3px,-3px)}
+    }
+    .business-card:active{transform:scale(.995)}
+    .business-content{padding:64px 60px;display:flex;flex-direction:column;align-items:flex-start;position:relative;z-index:1}
+    .business-content .category{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;opacity:.78;margin-bottom:28px}
+    .business-content .category::before{content:"";width:24px;height:1px;background:currentColor;opacity:.5}
+    .business-content h3{font-size:clamp(32px,3vw,46px);line-height:1.06;letter-spacing:-.06em;font-weight:860;margin-bottom:22px}
+    .business-content p{font-size:15px;line-height:1.9;max-width:460px;color:inherit;opacity:.92}
+    .business-content p + p{margin-top:18px}
+    .business-link{margin-top:auto;padding-top:26px;display:inline-flex;align-items:center;gap:16px;font-size:13px;font-weight:900;letter-spacing:.01em}
+    .business-link span{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid currentColor;border-radius:50%;font-size:18px;transition:transform .22s ease}
+    .business-visual{position:relative;padding:28px;display:flex;align-items:center;justify-content:center;min-height:100%}
+    .business-visual::after{content:"";position:absolute;left:12%;right:12%;bottom:7%;height:13%;border-radius:50%;filter:blur(30px);opacity:.32}
+    .asset-heading{position:absolute;left:28px;right:28px;top:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;z-index:3;color:#44506c;opacity:.9}
+
+    .websites{background:linear-gradient(135deg,#eff3ff 0%, #f8fbff 100%)}
+    .websites .business-content{color:#15204e}
+    .websites .business-visual{background:linear-gradient(135deg,#dbe6ff 0%, #edf4ff 50%, #f6fbff 100%)}
+    .websites .business-visual::after{background:radial-gradient(circle, rgba(21,94,239,.28), rgba(21,94,239,0) 72%)}
+    .website-frame{position:relative;width:100%;height:100%;min-height:420px;padding:26px;border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,255,255,.7));border:1px solid rgba(21,94,239,.09);box-shadow:0 28px 70px rgba(31,58,126,.12)}
+    .website-frame::before{display:none}
+    .website-shot{position:absolute;inset:44px 22px 18px;display:flex;align-items:center;justify-content:center}
+    .website-shot img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 26px 28px rgba(17,22,53,.12))}
+    .website-badge{position:absolute;right:16px;bottom:16px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.82);backdrop-filter:blur(10px);border:1px solid rgba(17,22,53,.08);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+
+    .jobpunter{background:linear-gradient(135deg,#0f1013 0%, #181a14 100%);color:#fff}
+    .jobpunter .business-content p{color:#cbd0dd}
+    .jobpunter .business-link{color:#efff5d}
+    .jobpunter .business-visual{background:radial-gradient(circle at 22% 18%, rgba(183,240,0,.14), transparent 32%), radial-gradient(circle at 82% 24%, rgba(255,255,255,.06), transparent 28%), linear-gradient(135deg,#121410 0%, #181a15 100%)}
+    .jobpunter .business-visual::after{background:radial-gradient(circle, rgba(183,240,0,.20), rgba(183,240,0,0) 72%)}
+    .jobpunter .asset-heading{color:#c9ced9}
+    .jp-stage{width:100%;height:100%;min-height:430px;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;padding:68px 2px 8px}
+    .jp-stage img{width:24.5%;min-width:130px;max-width:none;flex:1 1 0;height:auto;object-fit:contain;border-radius:26px;box-shadow:0 26px 50px rgba(0,0,0,.30);transition:transform .25s ease}
+    .jp-stage img:nth-child(1){transform:translateY(10px)}
+    .jp-stage img:nth-child(2){transform:translateY(-18px)}
+    .jp-stage img:nth-child(3){transform:translateY(18px)}
+    .jp-stage img:nth-child(4){transform:translateY(-4px)}
+    @media (hover:hover){.business-card:hover .jp-stage img:nth-child(2){transform:translateY(-24px)}.business-card:hover .jp-stage img:nth-child(1){transform:translateY(4px)}.business-card:hover .jp-stage img:nth-child(3){transform:translateY(12px)}.business-card:hover .jp-stage img:nth-child(4){transform:translateY(-10px)}}
+
+    .uuda{background:linear-gradient(135deg,#f1fbff 0%, #ecf9ff 100%)}
+    .uuda .business-content{color:#11203a}
+    .uuda .business-visual{background:linear-gradient(135deg,#0b0d12 0%, #121419 60%, #0b0d12 100%)}
+    .uuda .business-visual::after{background:radial-gradient(circle, rgba(0,219,255,.22), rgba(0,219,255,0) 72%)}
+    .uuda .asset-heading{color:#b7c5d7}
+    .uuda-stage{width:100%;height:100%;min-height:430px;padding:72px 18px 18px;position:relative}
+    .uuda-panel{position:relative;height:100%;min-height:340px;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 80px rgba(0,0,0,.30);display:flex;align-items:center;justify-content:center;background:#090b10}
+    .uuda-panel img.screen{width:100%;height:100%;object-fit:contain;object-position:center center;image-rendering:auto}
+    .uuda-logo-plate{position:absolute;right:18px;bottom:18px;left:auto;top:auto;width:210px;max-width:44%;padding:12px 14px;border-radius:16px;background:rgba(8,10,13,.72);border:1px solid rgba(255,255,255,.10);backdrop-filter:blur(10px);box-shadow:0 14px 28px rgba(0,0,0,.22);pointer-events:none}
+    .uuda-logo-plate img{width:100%;height:auto}
+
+    .future{
+      color:#fff;
+      background:linear-gradient(135deg,#0f1065 0%, #17177e 46%, #0c0f58 100%);
+      padding:0;
+    }
+    .future-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:34px;align-items:center;min-height:760px}
+    .future-text{padding:106px 0 100px;position:relative;z-index:1}
+    .future .number,.future .section-kicker{color:var(--lime)}
+    .future h2{margin-top:28px;font-size:clamp(44px,5.3vw,88px);line-height:.96;letter-spacing:-.075em;font-weight:900;max-width:600px}
+    .future .copy{color:#d6daf1}
+    .future-close{margin-top:28px;font-size:24px;font-weight:860;line-height:1.4;letter-spacing:-.04em;color:var(--lime);max-width:470px}
+    .future-visual-shell{position:relative;padding:22px 22px 0;border-radius:34px 34px 0 0;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.18), rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.10);box-shadow:0 30px 100px rgba(0,0,0,.25)}
+    .future-visual-shell::before{content:"";position:absolute;inset:auto 10% 5%;height:16%;border-radius:50%;background:radial-gradient(circle, rgba(183,240,0,.24), rgba(183,240,0,0) 72%);filter:blur(18px)}
+    .future-art{position:relative;min-height:680px;display:flex;align-items:flex-end;justify-content:center}
+    .future-art img{position:relative;z-index:1;max-width:100%;max-height:640px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 32px 40px rgba(0,0,0,.20))}
+
+    .footer{position:relative;padding:80px 0 28px;background:#0e1054;color:#fff;border-top:1px solid rgba(255,255,255,.10)}
+    .footer-primary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:70px;align-items:start;padding-bottom:70px}
+    .footer-identity{padding-top:1px}
+    .footer-brand{display:inline-block;width:min(320px,100%)}
+    .footer-brand img{display:block;width:100%;height:auto}
+    .footer-identity p{margin-top:23px;color:#d0d5ed;font-size:17px;letter-spacing:-.015em;line-height:1.6}
+    .footer-right{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+    .footer-links-group h3{color:var(--lime);font-size:11px;font-weight:850;letter-spacing:.17em;text-transform:uppercase;margin:0 0 24px}
+    .footer-links-group a{display:flex;align-items:center;justify-content:space-between;gap:12px;width:fit-content;min-height:28px;margin-bottom:11px;color:#e6eaf8;font-size:14px;line-height:1.5;transition:color .18s ease, transform .18s ease}
+    .footer-links-group a span{opacity:.75}
+    .footer-links-group a:hover{color:var(--lime);transform:translateX(2px)}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.14);padding-top:24px;font-size:12px;color:#aeb6d9;letter-spacing:.01em}
+
+    @media (max-width: 1180px){
+      :root{--wrap:min(100% - 54px, 1280px)}
+      .hero-inner,.origin-grid,.future-grid{gap:28px}
+      .hero-stage{min-height:620px}
+      .business-card{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)}
+      .business-content{padding:48px 42px}
+      .jp-stage img{width:26%;min-width:96px}
+      .footer-primary{grid-template-columns:1fr;gap:46px}
+    }
+
+    @media (max-width: 900px){
+      h1{font-size:clamp(42px,6.5vw,66px)}
+      .hero-inner,.origin-grid,.future-grid,.business-card{grid-template-columns:1fr}
+      .hero-inner{padding-top:34px}
+      .hero-copy{padding:28px 0 0}
+      .hero-stage{min-height:560px}
+      .origin-image,.future-art{min-height:420px}
+      .origin-visual-shell,.future-visual-shell{padding:18px}
+      .business-card{min-height:auto}
+      .business-visual{min-height:420px}
+      .footer-right{gap:36px}
+    }
+
+    @media (max-width: 720px){
+      :root{--wrap:calc(100% - 34px)}
+      .nav-in{height:74px}
+      .brand{width:178px}
+      .nav-menu{display:grid;place-items:center}
+      .nav-links{display:none;position:absolute;left:17px;right:17px;top:82px;padding:12px;border-radius:24px;flex-direction:column;align-items:stretch;background:rgba(255,255,255,.96);box-shadow:0 24px 40px rgba(16,22,64,.12)}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:14px 16px}
+      .hero-inner{min-height:auto;padding:30px 0 26px}
+      .hero-copy{padding-top:10px}
+      .eyebrow{font-size:10px}
+      h1{font-size:clamp(32px,8.4vw,58px);letter-spacing:-.07em}
+      .hero-lede{font-size:24px;max-width:340px}
+      .hero-support{font-size:15px;max-width:100%}
+      .hero-stage{min-height:440px}
+      .hero-stage::before{inset:6% 0 8%}
+      .hero-meta{gap:10px}
+      .hero-meta-pill{font-size:10px;letter-spacing:.08em}
+      .button-primary,.button-secondary{width:100%}
+      .section{padding:88px 0}
+      .businesses-title{white-space:normal}
+      .businesses-intro{font-size:16px}
+      .business-content{padding:38px 26px}
+      .business-content h3{font-size:32px}
+      .business-visual{padding:18px;min-height:360px}
+      .asset-heading{left:18px;right:18px;top:18px;font-size:8px}
+      .website-frame{min-height:310px;padding:18px}
+      .website-shot{inset:38px 12px 14px}
+      .jp-stage{min-height:320px;padding:52px 0 8px;gap:8px}
+      .jp-stage img{width:24.5%;min-width:76px;border-radius:18px}
+      .uuda-stage{min-height:320px;padding:56px 8px 8px}
+      .uuda-panel{min-height:230px}
+      .uuda-logo-plate{width:150px;right:12px;bottom:12px;top:auto;left:auto;padding:10px 12px}
+      .future h2{max-width:440px}
+      .future-text{padding:88px 0 30px}
+      .future-art{min-height:420px}
+      .footer{padding-top:58px}
+      .footer-primary{padding-bottom:44px}
+      .footer-right{grid-template-columns:1fr 1fr;gap:22px}
+      .footer-identity p{margin-top:16px;font-size:15px}
+      .footer-links-group a{font-size:13px}
+      .footer-bottom{font-size:11px}
+    }
+    :focus-visible{outline:3px solid var(--lime);outline-offset:4px}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    @media (max-width:380px){h1{font-size:31px}.footer-right{grid-template-columns:1fr}.businesses-title{font-size:38px}}
+
+    /* V8: exact editorial hero composition */
+    .hero{background:#fff;color:var(--ink);overflow:hidden;isolation:isolate}
+    .hero::before,.hero::after{display:none}
+    .hero-inner{
+      display:block;position:relative;z-index:1;
+      min-height:800px;padding:108px 0 100px;
+    }
+    .hero-heading{position:relative;z-index:3;max-width:900px}
+    .hero-heading h1{
+      margin:0;white-space:nowrap;color:var(--navy);
+      font-size:clamp(66px,7.5vw,116px);
+      line-height:.99;letter-spacing:-.085em;font-weight:900;
+    }
+    .hero-heading h1 span{color:var(--blue)}
+    .hero-lede{
+      max-width:910px;margin:14px 0 0;white-space:nowrap;
+      color:var(--ink);font-size:clamp(26px,2.75vw,43px);
+      font-weight:800;line-height:1.15;letter-spacing:-.055em;
+    }
+    .hero-copy{
+      position:relative;z-index:3;width:min(640px,52%);
+      padding:0;margin:14px 0 0;
+      display:flex;flex-direction:column;align-items:flex-start;
+    }
+    .hero-support{margin:0;max-width:610px;color:#58617b;font-size:clamp(18px,1.4vw,21px);line-height:1.75}
+    .hero-support strong{color:var(--navy);font-weight:800}
+    .hero-cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+    .hero .button-primary{background:var(--navy);color:#fff;box-shadow:0 14px 30px rgba(23,23,126,.16)}
+    .hero .button-primary:hover{box-shadow:0 18px 38px rgba(23,23,126,.22)}
+    .hero .button-secondary{color:var(--navy);background:#fff;border-color:#d7dbeb}
+    .hero .button-secondary:hover{background:#f3f5fb}
+    .hero-stage{
+      position:absolute;z-index:1;
+      width:min(69vw,900px);height:auto;
+      right:-90px;bottom:0;
+      min-height:0;margin:0;padding:0;
+      display:block;background:none;
+    }
+    .hero-stage::before,.hero-stage::after{display:none}
+    .hero-stage img{
+      display:block;width:100%;height:auto;max-height:none;
+      object-fit:contain;object-position:bottom right;filter:none;
+    }
+    @media(min-width:1550px){
+      .hero-inner{min-height:860px;padding-top:112px}
+      .hero-stage{width:min(68vw,960px);right:-105px}
+    }
+    @media(max-width:1240px){
+      .hero-inner{min-height:720px;padding:92px 0 80px}
+      .hero-heading h1{font-size:clamp(62px,7.25vw,95px)}
+      .hero-lede{font-size:clamp(24px,2.7vw,35px)}
+      .hero-copy{margin-top:12px;width:51%}
+      .hero-stage{width:min(68vw,750px);right:-64px}
+    }
+    @media(max-width:960px){
+      .hero-inner{min-height:640px;padding:76px 0 66px}
+      .hero-heading h1{font-size:clamp(51px,7.1vw,72px)}
+      .hero-lede{font-size:clamp(21px,2.6vw,30px)}
+      .hero-copy{width:50%;margin-top:12px}
+      .hero-support{font-size:16px;line-height:1.7}
+      .hero-stage{width:66vw;right:-44px}
+    }
+    @media(max-width:720px){
+      .hero-inner{display:flex;flex-direction:column;align-items:stretch;min-height:0;padding:46px 0 0}
+      .hero-heading{max-width:none}
+      .hero-heading h1{font-size:clamp(35px,8.1vw,59px);white-space:nowrap;letter-spacing:-.07em}
+      .hero-lede{white-space:normal;font-size:clamp(22px,4.7vw,30px);margin-top:14px}
+      .hero-copy{width:100%;max-width:none;margin:12px 0 0;padding:0}
+      .hero-support{max-width:540px;font-size:16px}
+      .hero-cta-row{margin-top:24px}
+      .hero-stage{position:relative;right:auto;bottom:auto;width:100%;max-width:620px;margin:12px auto 0}
+      .hero-stage img{width:100%}
+      .hero .button-primary,.hero .button-secondary{width:auto}
+    }
+    @media(max-width:420px){
+      .hero-heading h1{font-size:clamp(30px,8.1vw,35px)}
+      .hero-cta-row{width:100%;flex-direction:column}
+      .hero .button-primary,.hero .button-secondary{width:100%}
+    }
+
+    /* V10: align full illustration to the annotated guides without cropping */
+    @media (min-width: 961px) {
+      .hero-inner {
+        min-height: 820px;
+        padding-top: 108px;
+        padding-bottom: 100px;
+      }
+      .hero-stage {
+        position: absolute;
+        top: 8px;
+        right: -28px;
+        bottom: auto;
+        width: auto;
+        height: 612px;
+        min-height: 0;
+        margin: 0;
+        padding: 0;
+        display: block;
+        z-index: 1;
+      }
+      .hero-stage img {
+        height: 100%;
+        width: auto;
+        max-height: none;
+        max-width: none;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+    @media (min-width: 961px) and (max-width: 1240px) {
+      .hero-inner { min-height: 745px; }
+      .hero-stage { height: 570px; right: -14px; top: 9px; }
+    }
+    @media (min-width: 721px) and (max-width: 960px) {
+      .hero-stage {
+        position:absolute;
+        top:10px;
+        right:-12px;
+        bottom:auto;
+        width:auto;
+        height:510px;
+        min-height:0;
+        margin:0;
+        padding:0;
+        display:block;
+      }
+      .hero-stage img { width:auto;height:100%;max-height:none;max-width:none;object-fit:contain; }
+    }
+    @media (max-width:720px) {
+      .hero-stage { position:relative; top:auto; right:auto; bottom:auto; width:100%; height:auto; }
+      .hero-stage img { width:100%; height:auto; max-width:540px; max-height:none; }
+    }
+
+
+    /* V11: shift complete hero composition left to the supplied red guide */
+    @media(min-width:1241px){
+      .hero-stage{right:clamp(105px,9.2vw,180px)}
+    }
+    @media(min-width:961px) and (max-width:1240px){
+      .hero-stage{right:clamp(35px,6.4vw,80px)}
+    }
+    @media(min-width:721px) and (max-width:960px){
+      .hero-stage{right:clamp(0px,3vw,28px)}
+    }
+
+    /* V12 — annotated hero alignment; preserve artwork dimensions */
+    .hero-eyebrow{display:block;margin:0 0 13px;font-size:11px;font-weight:850;letter-spacing:.17em;line-height:1.4;color:var(--blue)}
+    @media (min-width:1241px){
+      .hero-heading{transform:translateY(80px)}
+      .hero-copy{transform:translateY(80px)}
+      .hero-stage{right:clamp(38px,5.6vw,112px)}
+    }
+    @media (min-width:961px) and (max-width:1240px){
+      .hero-heading{transform:translateY(62px)}
+      .hero-copy{transform:translateY(62px)}
+      .hero-stage{right:clamp(10px,3vw,42px)}
+    }
+    @media (min-width:721px) and (max-width:960px){
+      .hero-heading{transform:translateY(34px)}
+      .hero-copy{transform:translateY(34px)}
+      .hero-stage{right:0}
+    }
+    @media (max-width:720px){
+      .hero-heading,.hero-copy{transform:none}
+      .hero-eyebrow{font-size:10px;margin-bottom:12px}
+    }
+
+    /* V13: annotation-aligned header and hero copy, no other section changes */
+    @media (min-width:1241px) {
+      .nav .brand{width:270px}
+      .nav .nav-links{margin-right:clamp(90px,9vw,150px)}
+      .hero-heading,.hero-copy{transform:translateY(0)}
+    }
+    @media (min-width:961px) and (max-width:1240px) {
+      .nav .brand{width:245px}
+      .nav .nav-links{margin-right:clamp(24px,5vw,65px)}
+      .hero-heading,.hero-copy{transform:translateY(0)}
+    }
+    @media (min-width:721px) and (max-width:960px) {
+      .nav .brand{width:215px}
+      .nav .nav-links{margin-right:12px}
+      .hero-heading,.hero-copy{transform:translateY(0)}
+    }
+    @media (max-width:720px) {
+      .nav .brand{width:190px}
+      .nav .nav-links{margin-right:0}
+    }
+
+    /* V14: targeted visual refinement */
+    .hero-heading h1{color:#034be7}
+    .hero-heading h1 span{color:#88cc00}
+    .hero-eyebrow{display:flex;align-items:center;gap:14px;margin:0 0 14px;line-height:1.4;color:var(--blue)}
+    .hero-eyebrow .number{color:var(--blue)}
+    .hero-eyebrow .dash{color:var(--blue);opacity:.45}
+    .hero-eyebrow .section-kicker{font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+    .hero .button-secondary{border:1.5px solid #83c900;color:var(--navy);background:#fff}
+    .hero .button-secondary:hover{background:#f8ffe7;border-color:#73ba00}
+    .nav .nav-links{box-shadow:0 12px 36px rgba(23,23,126,.14),0 3px 9px rgba(10,18,50,.055);border-color:rgba(23,23,126,.08)}
+    .origin-title{max-width:none;letter-spacing:-.069em;font-size:clamp(39px,4.65vw,76px);line-height:1.02}
+    .origin-subtitle{font-size:clamp(17px,1.65vw,21px);font-weight:800;line-height:1.45;color:var(--ink);letter-spacing:-.02em;margin-bottom:21px!important}
+    .jp-stage img{border:5px solid #2b2d31;outline:1px solid #777d79;outline-offset:0;box-shadow:0 0 0 2px rgba(225,235,215,.17),0 25px 46px rgba(0,0,0,.52);background:#050505;border-radius:28px}
+    .future-visual-shell{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible}
+    .future-visual-shell::before{display:none}
+    .future-art{background:transparent}
+    @media(max-width:720px){
+      .hero-eyebrow{gap:10px;margin-bottom:12px}
+      .hero-eyebrow .section-kicker{font-size:10px}
+      .hero-eyebrow .dash{width:28px}
+      .origin-title{font-size:clamp(37px,9.2vw,58px);line-height:1.05;letter-spacing:-.06em}
+      .jp-stage img{border-width:3px;border-radius:20px}
+      .future-visual-shell{padding:0}
+    }
+  
+    /* V15: asset placement and sizing refinements */
+    @media (min-width: 901px){
+      .origin-title{max-width:760px}
+      .origin-visual-shell{margin-left:8px}
+      .uuda-panel img.screen{transform:translateZ(0)}
+    }
+    @media (max-width: 1180px){
+      .origin-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:46px}
+    }
+
+  
+/* V16 — curated portfolio card treatments */
+.card-stack{gap:34px}
+.business-card{
+  border-radius:34px;
+  border:1px solid rgba(30,48,94,.14);
+  box-shadow:0 2px 4px rgba(13,22,67,.025),0 22px 66px rgba(11,22,68,.095);
+  isolation:isolate;
+}
+.business-card::before{background:none;pointer-events:none}
+.business-card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  border-radius:inherit;
+  box-shadow:inset 0 1px rgba(255,255,255,.75),inset 0 -1px rgba(0,0,0,.025);
+  z-index:5;
+}
+.business-card .business-content{padding:58px 60px}
+.business-card .business-content .category{margin-bottom:18px}
+.product-wordmark{
+  font-size:clamp(24px,2.25vw,33px);
+  font-weight:900;
+  line-height:1.08;letter-spacing:-.06em;
+  margin-bottom:22px;padding-bottom:16px;
+  position:relative;
+}
+.product-wordmark::after{content:"";position:absolute;bottom:0;left:0;width:48px;height:3px;border-radius:3px;background:currentColor;opacity:.8}
+.websites .product-wordmark{color:#0649e5}
+.websites .product-wordmark span{color:#83c700}
+.jobpunter .product-wordmark{color:#f7f9ff}
+.jobpunter .product-wordmark span{color:#deff00}
+.uuda .product-wordmark{color:#1b3060}
+.uuda .product-wordmark span{color:#0096bd}
+.business-card .business-content h3{font-size:clamp(30px,2.65vw,43px)}
+.websites{background:#f2f6ff}
+.uuda{background:#edf9fc}
+.jobpunter{background:#101114}
+.websites .business-visual{border-left:1px solid rgba(15,50,116,.07)}
+.uuda .business-visual{border-left:1px solid rgba(12,34,63,.10)}
+.business-card .business-link{position:relative;z-index:6}
+@media(hover:hover){
+ .business-card:hover{transform:translateY(-5px);box-shadow:0 8px 18px rgba(11,22,68,.05),0 32px 85px rgba(11,22,68,.13)}
+}
+/* JobPunter: a wide, full-height mobile-first gallery that preserves all four phone screens */
+.business-card.jobpunter{display:grid;grid-template-columns:1fr;overflow:hidden}
+.jobpunter .business-content{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  column-gap:44px;align-items:start;
+  padding:54px 60px 28px;
+}
+.jobpunter .business-content .category,
+.jobpunter .business-content .product-wordmark,
+.jobpunter .business-content h3{grid-column:1}
+.jobpunter .business-content p{grid-column:2;margin:0}
+.jobpunter .business-content p + p{margin-top:14px}
+.jobpunter .business-content .business-link{grid-column:1;grid-row:4 / span 2;align-self:end;margin-top:14px}
+.jobpunter .business-visual{
+  display:block;min-height:0;padding:24px 36px 36px;
+  border-top:1px solid rgba(255,255,255,.09);
+  background:radial-gradient(circle at 50% 12%, rgba(183,240,0,.12),transparent 55%),#101310;
+}
+.jobpunter .asset-heading{position:relative;top:auto;left:auto;right:auto;margin-bottom:20px;color:#e8eedb}
+.jobpunter .jp-stage{
+  min-height:0;height:auto;width:100%;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  align-items:center;justify-content:space-evenly;gap:26px;padding:8px 20px 12px;
+  overflow:visible;
+}
+.jobpunter .jp-stage img{
+  display:block;width:100%;height:auto;min-width:0;max-width:none;max-height:480px;
+  object-fit:contain;object-position:center;
+  border:6px solid #282b2d;border-radius:27px;
+  box-shadow:0 0 0 1px rgba(222,255,0,.18),0 22px 42px rgba(0,0,0,.48);
+  transform:none!important;
+}
+@media(min-width:1500px){.jobpunter .jp-stage img{max-height:540px}}
+@media(max-width:1180px){
+ .business-card .business-content{padding:46px 42px}
+ .jobpunter .business-content{padding:44px 42px 24px}
+ .jobpunter .jp-stage{gap:16px;padding:10px 4px}
+ .jobpunter .jp-stage img{max-height:none}
+}
+@media(max-width:900px){
+ .jobpunter .business-content{display:block}
+ .jobpunter .business-content p{max-width:680px}
+ .jobpunter .business-content .business-link{margin-top:20px}
+ .jobpunter .business-visual{padding:22px 24px 26px}
+ .jobpunter .jp-stage{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;gap:22px;padding:12px 12px 24px;justify-content:flex-start;scrollbar-color:#a8ce18 #222823}
+ .jobpunter .jp-stage img{flex:0 0 auto;width:clamp(200px,34vw,250px);max-height:none;scroll-snap-align:center;border-radius:25px}
+}
+@media(max-width:720px){
+ .card-stack{gap:22px}
+ .business-card{border-radius:25px}
+ .business-card .business-content{padding:34px 27px}
+ .product-wordmark{font-size:27px;margin-bottom:18px}
+ .business-card .business-content h3{font-size:32px}
+ .jobpunter .business-visual{padding:18px 12px 24px}
+ .jobpunter .jp-stage{gap:14px;padding:10px 12px 20px}
+ .jobpunter .jp-stage img{width:clamp(188px,62vw,236px);border-width:5px;border-radius:22px}
+}
+
+
+/* V17 — immersive hero scale, entire original figure stays in frame */
+@media (min-width: 1101px) {
+  .hero-inner {
+    min-height: 960px;
+    padding: 172px 0 110px;
+  }
+  .hero-heading,.hero-copy { transform: none; }
+  .hero-heading { z-index: 3; max-width: 930px; }
+  .hero-copy { z-index: 3; width: min(600px, 48%); margin-top: 14px; }
+  .hero-stage {
+    position: absolute;
+    inset: 14px -14px auto auto;
+    width: auto;
+    height: 875px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    background: none;
+  }
+  .hero-stage img {
+    display: block;
+    width: auto;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    object-position: top right;
+  }
+}
+@media (min-width: 1500px) {
+  .hero-inner { min-height: 1040px; padding-top: 202px; }
+  .hero-stage { height: 975px; right: -20px; top: 18px; }
+}
+@media (min-width: 721px) and (max-width: 1100px) {
+  .hero-inner { min-height: 795px; padding: 132px 0 100px; }
+  .hero-heading,.hero-copy { transform: none; }
+  .hero-heading { z-index: 3; }
+  .hero-copy { z-index: 3; width: 49%; margin-top: 14px; }
+  .hero-stage {
+    position: absolute;
+    inset: 12px -8px auto auto;
+    width: auto;
+    height: 730px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .hero-stage img { height: 100%; width: auto; max-width: none; max-height: none; object-fit: contain; object-position: top right; }
+}
+@media (max-width: 720px) {
+  .hero-inner { min-height: 0; padding-top: 36px; }
+  .hero-heading,.hero-copy { transform: none; }
+  .hero-copy { width: 100%; margin-top: 12px; }
+  .hero-stage { position: relative; inset: auto; height: auto; min-height: 0; width: 100%; margin: 22px auto 0; }
+  .hero-stage img { display: block; height: auto; max-height: none; width: 100%; max-width: 640px; object-fit: contain; }
+}
+
+
+    /* V18 — native-scroll cinematic image reveal. The page scrolls normally;
+       the hero itself sticks while only the oversized artwork translates. */
+    .hero-scroll-shell{position:relative;background:#fff}
+    @media (min-width: 961px) and (prefers-reduced-motion: no-preference){
+      .hero-scroll-shell{
+        --hero-scroll-distance: 290px;
+        height:calc(100svh - 84px + var(--hero-scroll-distance));
+      }
+      .hero-scroll-shell > .hero{
+        position:sticky;
+        top:84px;
+        height:calc(100svh - 84px);
+        min-height:600px;
+        overflow:hidden;
+        isolation:isolate;
+      }
+      .hero-scroll-shell .hero-inner{
+        height:100%;min-height:0;
+        padding:0;
+        position:relative;
+      }
+      .hero-scroll-shell .hero-heading{
+        position:relative;
+        padding-top:clamp(125px,17svh,205px);
+        transform:none;
+      }
+      .hero-scroll-shell .hero-copy{transform:none;margin-top:14px}
+      .hero-scroll-shell .hero-stage{
+        position:absolute;
+        top:-7px;
+        bottom:auto;
+        right:clamp(-110px,-5vw,-25px);
+        height:clamp(870px,110svh,1140px);
+        width:auto;min-height:0;
+        margin:0;padding:0;
+        display:flex;justify-content:flex-end;align-items:flex-start;
+        transform:translate3d(0,var(--hero-art-offset,0px),0);
+        will-change:transform;
+        pointer-events:none;
+      }
+      .hero-scroll-shell .hero-stage img{
+        display:block;height:100%;width:auto;max-height:none;max-width:none;
+        object-fit:contain;object-position:top right;
+      }
+    }
+    @media (min-width: 961px) and (max-height: 680px) and (prefers-reduced-motion:no-preference){
+      .hero-scroll-shell .hero-heading{padding-top:72px}
+      .hero-scroll-shell .hero-stage{height:clamp(760px,125svh,970px);top:-7px}
+    }
+    @media (max-width:960px), (prefers-reduced-motion:reduce){
+      .hero-scroll-shell{height:auto!important}
+      .hero-scroll-shell > .hero{position:relative;top:auto;height:auto;min-height:0}
+      .hero-scroll-shell .hero-stage{transform:none!important;will-change:auto}
+    }
+
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a class="brand" href="#home" aria-label="GoReallyBig home">
+        <img src="assets/grb-logo-light.png" alt="GoReallyBig">
+      </a>
+      <button class="nav-menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#coming-from">Our Background</a>
+        <a href="#where-we-are">Our Work</a>
+        <a href="#where-were-going">Our Mission</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero-scroll-shell" id="hero-scroll-shell">
+    <section id="home" class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-heading">
+          <div class="section-head hero-eyebrow"><span class="number">00</span><span class="dash"></span><span class="section-kicker">The GoReallyBig mindset</span></div>
+          <h1>Go Really <span>Big.</span></h1>
+          <p class="hero-lede">It's not just words. It's a way of life.</p>
+        </div>
+        <div class="hero-copy">
+          <p class="hero-support">Making big ideas feel less intimidating. <strong>More doable.</strong> Because all big things usually start small.</p>
+          <div class="hero-cta-row">
+            <a class="button-primary" href="#where-we-are">Explore GoReallyBig</a>
+            <a class="button-secondary" href="#coming-from">Discover the story</a>
+          </div>
+        </div>
+        <div class="hero-stage">
+          <img src="assets/hero-giant-tight.png" alt="An enormous smiling child works a puzzle cube as a much smaller adult looks up in wonder, with dice and another puzzle nearby.">
+        </div>
+      </div>
+    </section>
+
+    </div><!-- end hero-scroll-shell -->
+
+    <section id="coming-from" class="section origin">
+      <div class="wrap origin-grid">
+        <div>
+          <div class="section-head"><span class="number">01</span><span class="dash"></span><span class="section-kicker">Where we're coming from</span></div>
+          <h2 class="origin-title">Everything big<br>starts somewhere.</h2>
+          <div class="copy">
+            <p class="origin-subtitle">An idea. A question. A problem that needs solving.</p>
+            <p>Sometimes, the puzzle looks bigger than anything we've taken on before. There isn't always a perfect plan. Most times, there's just enough conviction to take a chance, make a start, and figure things out along the way.</p>
+            <p>That's the thinking behind GoReallyBig.</p>
+            <p>Rooted in broadcasting and product management, and driven by the belief that big ideas should feel less intimidating and more achievable.</p>
+          </div>
+          <p class="origin-close">A little courage. A little curiosity.<br>And the willingness to begin.</p>
+        </div>
+        <div class="origin-visual-shell">
+          <div class="origin-image">
+            <img src="assets/origin-cube.png" alt="An oversized coding-themed three-by-three puzzle cube next to a single white die.">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="where-we-are" class="section businesses">
+      <div class="wrap">
+        <div class="section-head"><span class="number">02</span><span class="dash"></span><span class="section-kicker">Where we are</span></div>
+        <h2 class="businesses-title">Ideas taking shape.</h2>
+        <p class="businesses-intro">GoReallyBig brings together businesses and digital products built around different needs, with a shared interest in making useful things easier to do.</p>
+
+        <div class="card-stack">
+          <article class="business-card websites">
+            <div class="business-content">
+              <span class="category">01 / Digital business services</span>
+              <div class="product-wordmark">GoReallyBig <span>Websites</span></div>
+              <h3>Look the part.<br>Mean business.</h3>
+              <p>Professional websites that help businesses establish credibility, get found online, and turn visitors into customers.</p>
+              <p>From a first website to a complete makeover, the focus is on making a business look as capable online as it is in real life.</p>
+              <a class="business-link" href="https://websites.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore GoReallyBig Websites <span>↗</span></a>
+            </div>
+            <div class="business-visual">
+              <div class="asset-heading"><span>GoReallyBig Websites</span><span>Digital presence</span></div>
+              <div class="website-frame">
+                <div class="website-shot">
+                  <img src="assets/website-showcase.png" alt="GoReallyBig Websites showcase featuring a premium responsive beauty studio website displayed on tablet and mobile.">
+                </div>
+                <div class="website-badge">Mobile + desktop</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="business-card jobpunter">
+            <div class="business-content">
+              <span class="category">02 / Career technology</span>
+              <div class="product-wordmark">Job<span>Punter</span></div>
+              <h3>The job search,<br>with a little more sense.</h3>
+              <p>JobPunter brings job discovery, evidence-based matching, application preparation, and career management into one organized experience.</p>
+              <p>Built to help job seekers make better-informed decisions, put their strongest credible applications forward, and stay in control of the process.</p>
+              <a class="business-link" href="https://jobpunter.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore JobPunter <span>↗</span></a>
+            </div>
+            <div class="business-visual">
+              <div class="asset-heading"><span>JobPunter</span><span>Mobile-first product showcase</span></div>
+              <div class="jp-stage" aria-label="JobPunter mobile app screens">
+                <img src="assets/jp-welcome-full.png" alt="JobPunter welcome onboarding screen" loading="lazy">
+                <img src="assets/jp-jobpool-full.png" alt="JobPunter opportunity matching job pool screen" loading="lazy">
+                <img src="assets/jp-prep-plan-full.png" alt="JobPunter interview preparation planning screen" loading="lazy">
+                <img src="assets/jp-pipeline-full.png" alt="JobPunter application pipeline board screen" loading="lazy">
+              </div>
+            </div>
+          </article>
+
+          <article class="business-card uuda">
+            <div class="business-content">
+              <span class="category">03 / Audio production technology</span>
+              <div class="product-wordmark">Uuda <span>Studio</span></div>
+              <h3>Your audio studio.<br>Wherever you are.</h3>
+              <p>A professional, browser-based workspace for editing and processing audio, generating AI voiceovers, working with remote voice talent, and recording podcasts or broadcasts with remote guests.</p>
+              <p>From the first recording to the finished production, Uuda Studio brings the work together.</p>
+              <a class="business-link" href="https://uudastudio.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore Uuda Studio <span>↗</span></a>
+            </div>
+            <div class="business-visual">
+              <div class="asset-heading"><span>Uuda Studio</span><span>Professional audio workflow</span></div>
+              <div class="uuda-stage">
+                <div class="uuda-panel">
+                  <img class="screen" src="assets/uuda-real.webp" alt="Uuda Studio digital audio waveform editing interface" loading="lazy">
+                </div>
+                <div class="uuda-logo-plate">
+                  <img src="assets/uuda-primary.webp" alt="Uuda Studio primary logo with gold mark, white Uuda and cyan Studio wordmark" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="where-were-going" class="future">
+      <div class="wrap future-grid">
+        <div class="future-text">
+          <div class="section-head"><span class="number">03</span><span class="dash"></span><span class="section-kicker">Where we're going</span></div>
+          <h2>And we're just getting started.</h2>
+          <div class="copy">
+            <p>There will always be another puzzle to solve. Another possibility to explore. Another idea worth taking a chance on.</p>
+            <p>Some will be straightforward. Others will take a little more figuring out.</p>
+            <p>That's part of the journey.</p>
+            <p>We'll keep learning, building on what we've started, and making room for what's next.</p>
+          </div>
+          <p class="future-close">Because there's always something bigger ahead.</p>
+        </div>
+        <div class="future-visual-shell">
+          <div class="future-art">
+            <img src="assets/future-child.jpg" alt="A smiling child looks back over his shoulder while seated among dice and puzzle cubes.">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="GoReallyBig footer">
+    <div class="wrap">
+      <div class="footer-primary">
+        <div class="footer-identity">
+          <a href="#home" class="footer-brand" aria-label="GoReallyBig, back to home">
+            <img src="assets/grb-logo-footer.png" alt="GoReallyBig">
+          </a>
+          <p>It's not just words. It's a way of life.</p>
+        </div>
+        <div class="footer-right">
+          <div class="footer-links-group">
+            <h3>Our Work</h3>
+            <a href="https://websites.goreallybig.com" target="_blank" rel="noopener noreferrer">GoReallyBig Websites <span aria-hidden="true">↗</span></a>
+            <a href="https://jobpunter.goreallybig.com" target="_blank" rel="noopener noreferrer">JobPunter <span aria-hidden="true">↗</span></a>
+            <a href="https://uudastudio.goreallybig.com" target="_blank" rel="noopener noreferrer">Uuda Studio <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="footer-links-group">
+            <h3>Explore</h3>
+            <a href="#home">Home</a>
+            <a href="#coming-from">Our Background</a>
+            <a href="#where-we-are">Our Work</a>
+            <a href="#where-were-going">Our Mission</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> GoReallyBig. All rights reserved.</span>
+        <span>goreallybig.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menu = document.querySelector('.nav-menu');
+    const links = document.querySelector('.nav-links');
+    if (menu && links) {
+      menu.addEventListener('click', () => {
+        const open = links.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.textContent = open ? '×' : '☰';
+      });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        history.replaceState(null, '', id);
+        const offset = window.innerWidth <= 720 ? 74 : 84;
+        const y = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: y, behavior: 'instant' });
+        if (links) links.classList.remove('open');
+        if (menu) {
+          menu.textContent = '☰';
+          menu.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    const sectionLinks = [...document.querySelectorAll('.nav-links a')];
+    const sections = sectionLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.filter(entry => entry.isIntersecting).forEach(entry => {
+          sectionLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+          });
+        });
+      }, { rootMargin: '-30% 0px -55% 0px', threshold: 0.01 });
+      sections.forEach(section => observer.observe(section));
+    }
+
+    // Native-scroll reveal: only artwork moves while the sticky hero is held.
+    // No wheel/touch event interception, so trackpads, swipes, keyboard and
+    // reverse scrolling use the browser's standard scroll behavior.
+    (() => {
+      const shell=document.getElementById('hero-scroll-shell');
+      const hero=shell?.querySelector('.hero');
+      const art=shell?.querySelector('.hero-stage');
+      const artImage=art?.querySelector('img');
+      const cta=hero?.querySelector('.hero-cta-row');
+      const desktop=window.matchMedia('(min-width: 961px)');
+      const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(!shell || !hero || !art || !artImage || !cta) return;
+      let distance=0,frame=0;
+      const enabled=()=>desktop.matches && !reduceMotion.matches;
+      function measure(){
+        art.style.setProperty('--hero-art-offset','0px');
+        if(!enabled()){
+          distance=0;
+          shell.style.removeProperty('--hero-scroll-distance');
+          return;
+        }
+        // The requested stopping point is the feet/dice level with the CTA.
+        // Measure rendered elements rather than guessing a pixel displacement.
+        const artworkBottom=artImage.getBoundingClientRect().bottom;
+        const buttonBottom=cta.getBoundingClientRect().bottom;
+        distance=Math.max(0,Math.min(650,Math.round(artworkBottom-buttonBottom)));
+        shell.style.setProperty('--hero-scroll-distance',distance+'px');
+        render();
+      }
+      function render(){
+        frame=0;
+        if(!enabled() || distance<=0){
+          art.style.setProperty('--hero-art-offset','0px');
+          return;
+        }
+        const navHeight=document.querySelector('.nav')?.getBoundingClientRect().height ?? 84;
+        const progress=Math.max(0,Math.min(distance,navHeight-shell.getBoundingClientRect().top));
+        art.style.setProperty('--hero-art-offset',(-progress)+'px');
+      }
+      function schedule(){if(!frame) frame=requestAnimationFrame(render)}
+      window.addEventListener('scroll',schedule,{passive:true});
+      window.addEventListener('resize',measure,{passive:true});
+      desktop.addEventListener?.('change',measure);
+      reduceMotion.addEventListener?.('change',measure);
+      if(artImage.complete) measure(); else artImage.addEventListener('load',measure,{once:true});
+      window.addEventListener('load',measure,{once:true});
+      requestAnimationFrame(measure);
+    })();
+
+  </script>
+</body>
+</html>
