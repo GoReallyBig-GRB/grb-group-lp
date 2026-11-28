@@ -850,6 +850,69 @@
  .cinematic-card .cinematic-hint{display:none}
 }
 
+
+/* V22 — device presentation only; preserve native-scroll geometry and timing. */
+.cinematic-card.uuda .cinematic-desktop {
+  position:relative;
+  box-sizing:border-box;
+  display:block;
+  width:100%;
+  padding:12px 12px 0;
+  border:1px solid #444a54;
+  border-bottom:0;
+  border-radius:20px 20px 4px 4px;
+  background:linear-gradient(145deg,#292e35,#090b10 65%);
+  box-shadow:0 18px 35px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.14);
+}
+.cinematic-card.uuda .cinematic-desktop-screen {
+  background:#08090c;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:9px 9px 2px 2px;
+  overflow:hidden;
+}
+.cinematic-card.uuda .cinematic-desktop-screen img{
+  display:block;width:100%;height:auto;max-height:none;object-fit:contain;
+}
+.cinematic-card.uuda .cinematic-desktop-hinge {
+  height:12px;position:relative;margin:0 -26px;
+  background:linear-gradient(#9aa0a7,#484d55 42%,#30353b 72%,#a6abb0);
+  border-radius:3px 3px 14px 14px;
+  box-shadow:0 4px 12px rgba(0,0,0,.22);
+}
+.cinematic-card.uuda .cinematic-desktop-hinge::after{
+  content:"";position:absolute;width:21%;height:4px;left:39.5%;top:0;
+  border-radius:0 0 7px 7px;background:#50555c;
+}
+/* The supplied 486x1080 phone screenshots contain Android status chrome at
+   approximately 0–55px and browser/navigation chrome after 955px.
+   Clip only that outer chrome: the Uuda logo and call controls remain visible. */
+.cinematic-card.uuda .cinematic-phone {
+  box-sizing:border-box;
+  height:auto;
+  aspect-ratio:486 / 898;
+  width:min(43%,240px);
+  border:7px solid #1d2027;
+  border-radius:27px;
+  background:#09090d;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 17px 36px rgba(0,0,0,.35),inset 0 0 0 1px rgba(255,255,255,.15);
+}
+.cinematic-card.uuda .cinematic-phone img {
+  position:relative;display:block;
+  width:100%;height:auto;max-height:none!important;
+  object-fit:contain;
+  transform:translateY(-5.0%)!important;
+}
+.cinematic-card.uuda .cinematic-phone-grid {align-items:flex-start}
+@media (max-width:960px),(prefers-reduced-motion:reduce){
+  .cinematic-card.uuda .cinematic-phone {
+    width:100%;height:auto;aspect-ratio:486 / 898;
+    border-width:5px;border-radius:22px;
+  }
+  .cinematic-card.uuda .cinematic-desktop{padding:7px 7px 0;border-radius:13px 13px 2px 2px}
+  .cinematic-card.uuda .cinematic-desktop-hinge{height:8px;margin:0 -12px}
+}
 </style>
 </head>
 <body>
@@ -966,10 +1029,10 @@
             <div class="business-visual">
               <div class="asset-heading"><span>JobPunter</span><span>Mobile-first product showcase</span></div>
               <div class="jp-stage" aria-label="JobPunter mobile app screens">
-                <img src="assets/jp-welcome-full.png" alt="JobPunter welcome onboarding screen" loading="lazy">
-                <img src="assets/jp-jobpool-full.png" alt="JobPunter opportunity matching job pool screen" loading="lazy">
-                <img src="assets/jp-prep-plan-full.png" alt="JobPunter interview preparation planning screen" loading="lazy">
-                <img src="assets/jp-pipeline-full.png" alt="JobPunter application pipeline board screen" loading="lazy">
+                <img src="assets/jp-welcome-full.png" alt="JobPunter welcome screen" loading="lazy">
+                <img src="assets/jp-cover-letter-full.png" alt="JobPunter application preparation and cover-letter workspace" loading="lazy">
+                <img src="assets/jp-pipeline-full.png" alt="JobPunter post-application monitoring pipeline" loading="lazy">
+                <img src="assets/jp-prep-plan-full.png" alt="JobPunter interview coaching and preparation plan" loading="lazy">
               </div>
             </div>
           </article>
@@ -989,19 +1052,19 @@
                 <div class="cinematic-viewport">
                   <div class="cinematic-track">
                     <figure class="cinematic-slide">
-                      <img src="assets/uuda-real.webp" alt="Uuda Studio professional browser-based audio editor workspace" loading="lazy" decoding="async">
+                      <div class="cinematic-desktop" role="img" aria-label="Uuda Studio desktop application on a laptop-style display"><div class="cinematic-desktop-screen"><img src="assets/uuda-real.webp" alt="Uuda Studio professional browser-based audio editor workspace" loading="lazy" decoding="async"></div><div class="cinematic-desktop-hinge" aria-hidden="true"></div></div>
                       <figcaption>Professional audio editor workspace</figcaption>
                     </figure>
                     <figure class="cinematic-slide">
-                      <img src="assets/live-with-participant.png" alt="Uuda Studio live production room with host and remote participants" loading="lazy" decoding="async">
+                      <div class="cinematic-desktop" role="img" aria-label="Uuda Studio desktop application on a laptop-style display"><div class="cinematic-desktop-screen"><img src="assets/live-with-participant.png" alt="Uuda Studio live production room with host and remote participants" loading="lazy" decoding="async"></div><div class="cinematic-desktop-hinge" aria-hidden="true"></div></div>
                       <figcaption>Live studio · Remote participants</figcaption>
                     </figure>
                     <figure class="cinematic-slide">
-                      <img src="assets/live-with-chat.png" alt="Uuda Studio desktop live session and participant chat sidebar" loading="lazy" decoding="async">
+                      <div class="cinematic-desktop" role="img" aria-label="Uuda Studio desktop application on a laptop-style display"><div class="cinematic-desktop-screen"><img src="assets/live-with-chat.png" alt="Uuda Studio desktop live session and participant chat sidebar" loading="lazy" decoding="async"></div><div class="cinematic-desktop-hinge" aria-hidden="true"></div></div>
                       <figcaption>Live studio · Session chat</figcaption>
                     </figure>
                     <figure class="cinematic-slide">
-                      <img src="assets/live-add-participant.png" alt="Uuda Studio invitation controls for a live recording session" loading="lazy" decoding="async">
+                      <div class="cinematic-desktop" role="img" aria-label="Uuda Studio desktop application on a laptop-style display"><div class="cinematic-desktop-screen"><img src="assets/live-add-participant.png" alt="Uuda Studio invitation controls for a live recording session" loading="lazy" decoding="async"></div><div class="cinematic-desktop-hinge" aria-hidden="true"></div></div>
                       <figcaption>Live studio · Invite collaborators</figcaption>
                     </figure>
                     <figure class="cinematic-slide cinematic-phone-slide">
