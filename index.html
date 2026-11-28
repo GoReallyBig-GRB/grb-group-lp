@@ -1020,6 +1020,32 @@
   .business-card .business-content .business-link span{transition:none!important}
 }
 
+
+/* V24 — Uuda gallery only: lifted slate backdrop to separate dark device frames.
+   Keep the display devices, screenshots, geometry and pinned-scroll travel unchanged. */
+.business-card.uuda .cinematic-visual {
+  background:
+    radial-gradient(ellipse at 72% 12%, rgba(113,164,190,.22) 0%, transparent 46%),
+    linear-gradient(145deg,#465363 0%,#394654 48%,#2e3948 100%)!important;
+}
+.business-card.uuda .cinematic-slide {
+  background:linear-gradient(145deg,#4b5969 0%,#374454 100%)!important;
+  border-color:rgba(218,234,250,.22)!important;
+  box-shadow:0 12px 32px rgba(8,17,31,.19),inset 0 1px 0 rgba(255,255,255,.06);
+}
+.business-card.uuda .cinematic-slide figcaption{color:#ecf4fc!important;}
+.business-card.uuda .cinematic-phone {
+  box-shadow:0 20px 40px rgba(6,13,24,.42),0 0 0 1px rgba(226,240,255,.15)!important;
+}
+.business-card.uuda .cinematic-desktop {
+  box-shadow:0 20px 42px rgba(6,13,24,.42),0 0 0 1px rgba(255,255,255,.12) inset!important;
+}
+@media(max-width:960px),(prefers-reduced-motion:reduce){
+  .business-card.uuda .cinematic-visual {
+    background:linear-gradient(145deg,#465363,#303d4b)!important;
+  }
+}
+
 </style>
 </head>
 <body>
