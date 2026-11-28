@@ -1308,6 +1308,138 @@
  .mobile-business-link:focus-visible{outline:3px solid var(--link-fill);outline-offset:4px;}
 }
 
+
+/* V30 — mobile review: flush image-first hero, aligned gallery and editorial highlights. */
+/* Align all three Websites designs within a consistent presentation canvas. */
+.business-card.websites .cinematic-slide{
+  width:100%;
+  align-items:stretch;
+}
+.business-card.websites .cinematic-slide > img{
+  width:100%;
+  height:clamp(245px,31vw,440px);
+  max-height:none;
+  object-fit:contain;
+  object-position:center center;
+  flex:none;
+}
+.business-card.websites .cinematic-slide > figcaption{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:39px;
+  line-height:1.45;
+}
+.future-emphasis{display:contents;}
+@media(max-width:960px){
+  .business-card.websites .cinematic-slide > img{
+    height:clamp(225px,54vw,390px);
+    max-height:none;
+    object-fit:contain;
+    object-position:center;
+  }
+}
+@media(max-width:720px){
+  /* Intentionally touch the child's image canvas to the underside of the nav. */
+  .hero-scroll-shell{overflow:visible;}
+  .hero-scroll-shell .hero{overflow:hidden;}
+  .hero-inner{align-items:stretch!important;padding-top:0!important;}
+  .hero-stage{
+    margin-top:0!important;
+    padding-top:0!important;
+    padding-bottom:0!important;
+    transform:none!important;
+  }
+  .hero-stage img{margin:0!important;padding:0!important;vertical-align:top;}
+  /* One line of breathing room between the artwork and the hero title. */
+  .hero-heading{
+    margin:0!important;
+    padding-top:18px!important;
+    width:100%;
+    text-align:center;
+  }
+  .hero-heading h1,.hero-lede{text-align:center;}
+  .hero-copy{
+    width:100%!important;
+    max-width:none!important;
+    align-items:center!important;
+    text-align:center!important;
+    margin:13px 0 0!important;
+  }
+  .hero-support{width:100%;max-width:590px;text-align:center;}
+  .hero-cta-row{width:100%;justify-content:center;align-items:center;}
+  /* Consistent mockup scale and shared horizontal alignment while scrolling. */
+  .business-card.websites .cinematic-visual{overflow:hidden;}
+  .business-card.websites .cinematic-slide{
+    width:100%;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:center;
+  }
+  .business-card.websites .cinematic-slide > img{
+    display:block;
+    width:100%;
+    height:clamp(210px,65vw,340px);
+    max-height:none!important;
+    object-fit:contain;
+    object-position:center center;
+  }
+  .business-card.websites .cinematic-slide > figcaption{
+    min-height:34px;
+    margin:5px 0 0;
+    padding:6px 3px 0;
+  }
+  /* Second body paragraph in every product is a visual interlude. */
+  .business-card .business-content > p:not(.cinematic-hint) + p:not(.cinematic-hint){
+    margin:20px 0 8px;
+    padding:18px 17px;
+    border-left:3px solid #155eef;
+    border-radius:0 15px 15px 0;
+    background:rgba(21,94,239,.07);
+    color:#23365d;
+    opacity:1;
+    font-weight:650;
+    line-height:1.7;
+  }
+  .business-card.jobpunter .business-content > p:not(.cinematic-hint) + p:not(.cinematic-hint){
+    background:rgba(183,240,0,.10);
+    border-left-color:#b7f000;
+    color:#f0f7df;
+  }
+  .business-card.uuda .business-content > p:not(.cinematic-hint) + p:not(.cinematic-hint){
+    background:rgba(0,153,184,.10);
+    border-left-color:#0099b8;
+    color:#173f52;
+  }
+  /* Mission middle paragraphs highlighted without changing their wording. */
+  .future-text > .copy .future-emphasis{
+    display:block;
+    margin-top:23px;
+    padding:22px 20px;
+    background:rgba(255,255,255,.075);
+    border-left:3px solid #b7f000;
+    border-radius:0 18px 18px 0;
+  }
+  .future-emphasis p{margin:0;color:#f0f4ff;}
+  .future-emphasis p + p{margin-top:17px;}
+  .future-text > .future-close{
+    display:block;
+    width:100%;
+    margin:24px 0 0!important;
+    padding:23px 20px;
+    border:1.5px solid rgba(183,240,0,.8);
+    border-radius:21px;
+    color:#d9ff82;
+    background:linear-gradient(145deg,rgba(183,240,0,.11),rgba(255,255,255,.045));
+    box-shadow:0 0 0 1px rgba(183,240,0,.13),0 0 22px rgba(183,240,0,.19),
+      inset 0 1px 0 rgba(255,255,255,.08);
+    font-size:clamp(20px,5.4vw,27px);
+    line-height:1.35;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1491,9 +1623,11 @@
           <h2>And we're just getting started.</h2>
           <div class="copy">
             <p>There will always be another puzzle to solve. Another possibility to explore. Another idea worth taking a chance on.</p>
-            <p>Some will be straightforward. Others will take a little more figuring out.</p>
-            <p>That's part of the journey.</p>
-            <p>We'll keep learning, building on what we've started, and making room for what's next.</p>
+            <div class="future-emphasis">
+              <p>Some will be straightforward. Others will take a little more figuring out.</p>
+              <p>That's part of the journey.</p>
+              <p>We'll keep learning, building on what we've started, and making room for what's next.</p>
+            </div>
           </div>
           <p class="future-close">Because there's always something bigger ahead.</p>
         </div>
