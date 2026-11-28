@@ -1468,6 +1468,16 @@
   .hero-scroll-shell .hero-cta-row{margin-top:14px;gap:8px;}
 }
 
+
+/* V31 — match accepted mobile screenshot: intentional crown crop at nav edge.
+   Negative top margin crops the top of the original image inside the existing
+   hero overflow, and pulls the caption/CTA up by the same distance. */
+@media(max-width:720px){
+  .hero-scroll-shell .hero-stage{
+    margin-top:-36px!important;
+  }
+}
+
 </style>
 </head>
 <body>
