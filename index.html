@@ -1513,6 +1513,35 @@
   }
 }
 
+
+/* V35 — mobile release corrections. Only tablet/mobile layouts are affected. */
+/* Allow the entire illustrated child (including shoes and puzzle cubes) to fit. */
+@media(min-width:721px) and (max-width:960px){
+  .hero-scroll-shell > .hero{height:auto;}
+  .hero-scroll-shell .hero-inner{
+    min-height:clamp(520px,69vw,610px);
+  }
+}
+/* A quiet affordance for the swipe-only JobPunter image gallery. */
+.jp-swipe-hint{display:none;}
+@media(max-width:900px){
+  .jobpunter .jp-swipe-hint{
+    display:flex;align-items:center;justify-content:flex-end;gap:8px;
+    width:100%;margin:0 0 2px;padding:0 23px;
+    color:#d4ec8a;font-size:11px;font-weight:850;
+    letter-spacing:.08em;text-transform:uppercase;
+    line-height:1.5;pointer-events:none;
+  }
+  .jobpunter .jp-swipe-hint span{font-size:19px;line-height:1;}
+  /* The mission photo has a deliberate but subtle edge on smaller screens. */
+  .future-visual-shell .future-art img{
+    border-radius:18px;
+  }
+}
+@media(max-width:390px){
+  .future-visual-shell .future-art img{border-radius:14px;}
+}
+
 </style>
 </head>
 <body>
@@ -1630,6 +1659,7 @@
             </div>
             <div class="business-visual">
               <div class="asset-heading"><span>JobPunter</span><span>Mobile-first product showcase</span></div>
+              <p class="jp-swipe-hint" aria-hidden="true">Swipe to explore <span>↔</span></p>
               <div class="jp-stage" aria-label="JobPunter mobile app screens">
                 <img src="assets/jp-welcome-full.png" alt="JobPunter welcome screen" loading="lazy">
                 <img src="assets/jp-cover-letter-full.png" alt="JobPunter application preparation and cover-letter workspace" loading="lazy">
@@ -1814,7 +1844,8 @@
         if (!el) return;
         e.preventDefault();
         history.replaceState(null, '', id);
-        const offset = window.innerWidth <= 720 ? 74 : 84;
+        const offset = document.querySelector('.nav')?.getBoundingClientRect().height
+          ?? (window.innerWidth <= 720 ? 56 : 84);
         const y = el.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top: y, behavior: 'instant' });
         if (links) links.classList.remove('open');
