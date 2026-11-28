@@ -1526,9 +1526,10 @@
 .jp-swipe-hint{display:none;}
 @media(max-width:900px){
   .jobpunter .jp-swipe-hint{
-    display:flex;align-items:center;justify-content:flex-end;gap:8px;
-    width:100%;margin:0 0 2px;padding:0 23px;
-    color:#d4ec8a;font-size:11px;font-weight:850;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    width:100%;margin:8px 0 0;padding:0 16px;
+    position:relative;z-index:2;
+    color:#fff;font-size:11px;font-weight:850;
     letter-spacing:.08em;text-transform:uppercase;
     line-height:1.5;pointer-events:none;
   }
@@ -1540,6 +1541,25 @@
 }
 @media(max-width:390px){
   .future-visual-shell .future-art img{border-radius:14px;}
+}
+
+/* V36 — approved mobile showcase cue and gradual mission colour transition. */
+@media(max-width:720px){
+  .jobpunter .business-visual{padding-bottom:5px;}
+  .jobpunter .jp-swipe-hint{margin-top:10px;font-size:12px;}
+  .jobpunter .mobile-cta-slot{padding-top:14px;}
+  .future{
+    background:linear-gradient(180deg,
+      #fff 0,
+      #f1f3ff 48px,
+      #dbe2fa 116px,
+      #9daeea calc(116px + 15vw),
+      #555fb9 calc(132px + 29vw),
+      #17177e calc(145px + 45vw),
+      #17177e 100%);
+  }
+  .future .number,.future .section-kicker,.future h2{color:#17177e;}
+  .future .section-head .dash{background:#17177e;}
 }
 
 </style>
@@ -1659,13 +1679,13 @@
             </div>
             <div class="business-visual">
               <div class="asset-heading"><span>JobPunter</span><span>Mobile-first product showcase</span></div>
-              <p class="jp-swipe-hint" aria-hidden="true">Swipe to explore <span>↔</span></p>
               <div class="jp-stage" aria-label="JobPunter mobile app screens">
                 <img src="assets/jp-welcome-full.png" alt="JobPunter welcome screen" loading="lazy">
                 <img src="assets/jp-cover-letter-full.png" alt="JobPunter application preparation and cover-letter workspace" loading="lazy">
                 <img src="assets/jp-pipeline-full.png" alt="JobPunter post-application monitoring pipeline" loading="lazy">
                 <img src="assets/jp-prep-plan-full.png" alt="JobPunter interview coaching and preparation plan" loading="lazy">
               </div>
+              <p class="jp-swipe-hint" aria-hidden="true">Swipe to explore <span>↔</span></p>
             </div>
 
             <div class="mobile-cta-slot"><a class="business-link mobile-business-link" href="https://jobpuntertest.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore JobPunter <span>↗</span></a></div>
