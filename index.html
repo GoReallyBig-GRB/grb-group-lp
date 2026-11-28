@@ -6,6 +6,20 @@
   <meta name="theme-color" content="#17177e">
   <meta name="description" content="GoReallyBig. It's not just words. It's a way of life. Explore GoReallyBig Websites, JobPunter and Uuda Studio.">
   <title>GoReallyBig — It's a way of life.</title>
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GoReallyBig">
+  <meta property="og:title" content="GoReallyBig — It's a way of life.">
+  <meta property="og:description" content="Making big ideas feel less intimidating. More doable. Discover GoReallyBig Websites, JobPunter and Uuda Studio.">
+  <meta property="og:image" content="https://staging.goreallybig.com/assets/hero-giant-tight.png">
+  <meta property="og:url" content="https://staging.goreallybig.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://goreallybig.com/">
+  <link rel="icon" href="assets/grb-logo-nav.png" type="image/png">
+  <link rel="preload" as="image" href="assets/hero-giant-tight.png" fetchpriority="high">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"GoReallyBig","url":"https://goreallybig.com","email":"info@goreallybig.com","sameAs":["https://www.facebook.com/goreallybig","https://www.instagram.com/goreallybig","https://www.tiktok.com/@goreallybig","https://x.com/goreallybig","https://www.linkedin.com/company/goreallybig"]}</script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"c0048fe994a9490981b11d691997a4b2"}'></script>
   <style>
     :root{
       --navy:#17177e;
@@ -277,6 +291,17 @@
     @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
     @media (max-width:380px){h1{font-size:31px}.footer-right{grid-template-columns:1fr}.businesses-title{font-size:38px}}
 
+    /* Desktop finishing: accessible contact and social footer */
+    .skip-link{position:absolute;top:-80px;left:16px;z-index:200;background:#fff;color:var(--navy);border-radius:10px;padding:12px 16px;font-weight:800}
+    .skip-link:focus{top:12px}
+    .footer-contact-email{display:inline-flex!important;align-items:center;gap:8px;color:#fff!important;font-size:16px!important;font-weight:750!important;overflow-wrap:anywhere}
+    .footer-contact-caption{color:#bfc9e7;font-size:13px;line-height:1.6;margin:8px 0 12px}
+    .footer-socials{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .footer-socials a{display:inline-flex;align-items:center;justify-content:center;width:39px;height:39px;border:1px solid rgba(255,255,255,.18);border-radius:50%;font-size:12px;font-weight:750;background:rgba(255,255,255,.035);color:#e7ebfc;transition:background .2s,color .2s,border-color .2s}
+    .footer-socials a:hover{border-color:var(--lime);background:rgba(183,240,0,.1);color:var(--lime)}
+    @media(min-width:1100px){.footer-primary{grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:64px}.footer-right{grid-template-columns:.9fr .9fr 1.25fr;gap:30px}}
+    @media(min-width:721px) and (max-width:1099px){.footer-right{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}}
+    @media(max-width:720px){.footer-right{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-contact{grid-column:1/-1}}
     /* V8: exact editorial hero composition */
     .hero{background:#fff;color:var(--ink);overflow:hidden;isolation:isolate}
     .hero::before,.hero::after{display:none}
@@ -721,10 +746,11 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#where-we-are">Skip to Our Work</a>
   <header class="nav">
     <div class="wrap nav-in">
       <a class="brand" href="#home" aria-label="GoReallyBig home">
-        <img src="assets/grb-logo-light.png" alt="GoReallyBig">
+        <img loading="lazy" decoding="async" src="assets/grb-logo-light.png" alt="GoReallyBig">
       </a>
       <button class="nav-menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <nav class="nav-links" aria-label="Main navigation">
@@ -753,7 +779,7 @@
           </div>
         </div>
         <div class="hero-stage">
-          <img src="assets/hero-giant-tight.png" alt="An enormous smiling child works a puzzle cube as a much smaller adult looks up in wonder, with dice and another puzzle nearby.">
+          <img fetchpriority="high" decoding="async" src="assets/hero-giant-tight.png" alt="An enormous smiling child works a puzzle cube as a much smaller adult looks up in wonder, with dice and another puzzle nearby.">
         </div>
       </div>
     </section>
@@ -775,7 +801,7 @@
         </div>
         <div class="origin-visual-shell">
           <div class="origin-image">
-            <img src="assets/origin-cube.png" alt="An oversized coding-themed three-by-three puzzle cube next to a single white die.">
+            <img loading="lazy" decoding="async" src="assets/origin-cube.png" alt="An oversized coding-themed three-by-three puzzle cube next to a single white die.">
           </div>
         </div>
       </div>
@@ -795,13 +821,13 @@
               <h3>Look the part.<br>Mean business.</h3>
               <p>Professional websites that help businesses establish credibility, get found online, and turn visitors into customers.</p>
               <p>From a first website to a complete makeover, the focus is on making a business look as capable online as it is in real life.</p>
-              <a class="business-link" href="https://websites.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore GoReallyBig Websites <span>↗</span></a>
+              <a class="business-link" href="https://goreallybig.com" target="_blank" rel="noopener noreferrer">Explore GoReallyBig Websites <span>↗</span></a>
             </div>
             <div class="business-visual">
               <div class="asset-heading"><span>GoReallyBig Websites</span><span>Digital presence</span></div>
               <div class="website-frame">
                 <div class="website-shot">
-                  <img src="assets/website-showcase.png" alt="GoReallyBig Websites showcase featuring a premium responsive beauty studio website displayed on tablet and mobile.">
+                  <img loading="lazy" decoding="async" src="assets/website-showcase.png" alt="GoReallyBig Websites showcase featuring a premium responsive beauty studio website displayed on tablet and mobile.">
                 </div>
                 <div class="website-badge">Mobile + desktop</div>
               </div>
@@ -815,7 +841,7 @@
               <h3>The job search,<br>with a little more sense.</h3>
               <p>JobPunter brings job discovery, evidence-based matching, application preparation, and career management into one organized experience.</p>
               <p>Built to help job seekers make better-informed decisions, put their strongest credible applications forward, and stay in control of the process.</p>
-              <a class="business-link" href="https://jobpunter.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore JobPunter <span>↗</span></a>
+              <a class="business-link" href="https://jobpuntertest.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore JobPunter <span>↗</span></a>
             </div>
             <div class="business-visual">
               <div class="asset-heading"><span>JobPunter</span><span>Mobile-first product showcase</span></div>
@@ -835,7 +861,7 @@
               <h3>Your audio studio.<br>Wherever you are.</h3>
               <p>A professional, browser-based workspace for editing and processing audio, generating AI voiceovers, working with remote voice talent, and recording podcasts or broadcasts with remote guests.</p>
               <p>From the first recording to the finished production, Uuda Studio brings the work together.</p>
-              <a class="business-link" href="https://uudastudio.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore Uuda Studio <span>↗</span></a>
+              <a class="business-link" href="https://uudatest.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore Uuda Studio <span>↗</span></a>
             </div>
             <div class="business-visual">
               <div class="asset-heading"><span>Uuda Studio</span><span>Professional audio workflow</span></div>
@@ -868,7 +894,7 @@
         </div>
         <div class="future-visual-shell">
           <div class="future-art">
-            <img src="assets/future-child.jpg" alt="A smiling child looks back over his shoulder while seated among dice and puzzle cubes.">
+            <img loading="lazy" decoding="async" src="assets/future-child.jpg" alt="A smiling child looks back over his shoulder while seated among dice and puzzle cubes.">
           </div>
         </div>
       </div>
@@ -880,16 +906,16 @@
       <div class="footer-primary">
         <div class="footer-identity">
           <a href="#home" class="footer-brand" aria-label="GoReallyBig, back to home">
-            <img src="assets/grb-logo-footer.png" alt="GoReallyBig">
+            <img loading="lazy" decoding="async" src="assets/grb-logo-footer.png" alt="GoReallyBig">
           </a>
           <p>It's not just words. It's a way of life.</p>
         </div>
         <div class="footer-right">
           <div class="footer-links-group">
             <h3>Our Work</h3>
-            <a href="https://websites.goreallybig.com" target="_blank" rel="noopener noreferrer">GoReallyBig Websites <span aria-hidden="true">↗</span></a>
-            <a href="https://jobpunter.goreallybig.com" target="_blank" rel="noopener noreferrer">JobPunter <span aria-hidden="true">↗</span></a>
-            <a href="https://uudastudio.goreallybig.com" target="_blank" rel="noopener noreferrer">Uuda Studio <span aria-hidden="true">↗</span></a>
+            <a href="https://goreallybig.com" target="_blank" rel="noopener noreferrer">GoReallyBig Websites <span aria-hidden="true">↗</span></a>
+            <a href="https://jobpuntertest.goreallybig.com" target="_blank" rel="noopener noreferrer">JobPunter <span aria-hidden="true">↗</span></a>
+            <a href="https://uudatest.goreallybig.com" target="_blank" rel="noopener noreferrer">Uuda Studio <span aria-hidden="true">↗</span></a>
           </div>
           <div class="footer-links-group">
             <h3>Explore</h3>
@@ -897,6 +923,19 @@
             <a href="#coming-from">Our Background</a>
             <a href="#where-we-are">Our Work</a>
             <a href="#where-were-going">Our Mission</a>
+          </div>
+          <div class="footer-links-group footer-contact">
+            <h3>Get in touch</h3>
+            <a class="footer-contact-email" href="mailto:info@goreallybig.com">info@goreallybig.com</a>
+            <p class="footer-contact-caption">Ideas, partnerships and general enquiries.</p>
+            <h3 style="margin:20px 0 10px">Follow us</h3>
+            <div class="footer-socials" aria-label="GoReallyBig social media">
+              <a href="https://www.facebook.com/goreallybig" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+              <a href="https://www.instagram.com/goreallybig" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer">ig</a>
+              <a href="https://www.tiktok.com/@goreallybig" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener noreferrer">♪</a>
+              <a href="https://x.com/goreallybig" aria-label="X" title="X" target="_blank" rel="noopener noreferrer">𝕏</a>
+              <a href="https://www.linkedin.com/company/goreallybig" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+            </div>
           </div>
         </div>
       </div>
