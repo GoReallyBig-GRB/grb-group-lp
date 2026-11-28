@@ -205,6 +205,16 @@ document.getElementById('year').textContent = new Date().getFullYear();
 (() => {
   const gallery = document.querySelector('.jobpunter .jp-stage');
   if (!gallery) return;
+  const mobileGallery = window.matchMedia('(max-width: 900px)');
+  const syncGalleryAccessibility = () => {
+    const horizontallyScrollable = mobileGallery.matches;
+    gallery.tabIndex = horizontallyScrollable ? 0 : -1;
+    gallery.setAttribute('aria-label', horizontallyScrollable
+      ? 'JobPunter mobile app screenshots. Swipe horizontally or use left and right arrow keys to explore.'
+      : 'JobPunter mobile app screenshots');
+  };
+  syncGalleryAccessibility();
+  mobileGallery.addEventListener?.('change', syncGalleryAccessibility);
   gallery.addEventListener('keydown', event => {
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
     if (gallery.scrollWidth <= gallery.clientWidth) return;
