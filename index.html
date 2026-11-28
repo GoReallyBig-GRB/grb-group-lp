@@ -1440,6 +1440,46 @@
   }
 }
 
+
+/* Mobile hero: editorial typography and compact first viewport.
+   Keep desktop cinematic scroll and the original artwork/copy unchanged. */
+.hero-stage .hero-backdrop-words{display:none;}
+@media(max-width:720px){
+  .nav .nav-in{height:56px;gap:10px;}
+  .nav .nav-menu{width:44px;height:44px;}
+  .nav .nav-links{top:64px;max-height:calc(100svh - 72px);}
+  .hero-scroll-shell .hero-inner{padding:0 0 24px!important;}
+  .hero-scroll-shell .hero-stage{isolation:isolate;}
+  .hero-scroll-shell .hero-stage .hero-backdrop-words{
+    display:flex;position:absolute;z-index:0;inset:5% 4% auto;
+    flex-direction:column;align-items:flex-start;gap:0;
+    pointer-events:none;user-select:none;
+    color:rgba(23,23,126,.12);
+    font-size:clamp(42px,16vw,105px);line-height:.94;
+    font-weight:900;letter-spacing:-.075em;
+  }
+  .hero-backdrop-words span{display:block;}
+  .hero-backdrop-words span:nth-child(2){margin-top:7%;margin-left:2%;}
+  .hero-backdrop-words span:nth-child(3){margin-top:7%;margin-left:1%;}
+  .hero-scroll-shell .hero-stage img{
+    /* 85–90% of the original full-width artwork, responsive to viewport height. */
+    width:clamp(85%,calc((100svh - 170px) * .69),90%)!important;
+    height:auto!important;max-width:90%!important;
+    margin:0 auto!important;position:relative;z-index:1;
+  }
+  .hero-scroll-shell .hero-heading{padding-top:8px!important;}
+  .hero-scroll-shell .hero-heading h1{
+    font-size:clamp(30px,9.3vw,56px);line-height:1.02;white-space:nowrap;
+  }
+  .hero-scroll-shell .hero-lede{
+    max-width:none;margin:4px auto 0!important;
+    font-size:clamp(18px,4.8vw,27px);line-height:1.12;
+  }
+  .hero-scroll-shell .hero-copy{margin:8px 0 0!important;}
+  .hero-scroll-shell .hero-support{line-height:1.45;}
+  .hero-scroll-shell .hero-cta-row{margin-top:14px;gap:8px;}
+}
+
 </style>
 </head>
 <body>
@@ -1476,6 +1516,7 @@
           </div>
         </div>
         <div class="hero-stage">
+          <div class="hero-backdrop-words" aria-hidden="true"><span>IMAGINE.</span><span>BUILD.</span><span>SOLVE.</span></div>
           <img fetchpriority="high" decoding="async" src="assets/hero-giant-tight.png" alt="An enormous smiling child works a puzzle cube as a much smaller adult looks up in wonder, with dice and another puzzle nearby.">
         </div>
       </div>
