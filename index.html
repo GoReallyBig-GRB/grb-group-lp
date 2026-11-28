@@ -1486,10 +1486,12 @@
     backdrop-filter:none;
     transition:background-color .2s ease,backdrop-filter .2s ease;
   }
+  /* Let the actual crown show through: little whitening, no heavy blur. */
   .nav.nav--hero-overlay{
-    background:rgba(255,255,255,.88)!important;
-    -webkit-backdrop-filter:blur(8px);
-    backdrop-filter:blur(8px);
+    background:rgba(255,255,255,.66)!important;
+    -webkit-backdrop-filter:blur(1px)!important;
+    backdrop-filter:blur(1px)!important;
+    box-shadow:0 1px 0 rgba(23,23,126,.06);
   }
 }
 
