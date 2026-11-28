@@ -1213,6 +1213,68 @@
   .jobpunter .jp-stage img{width:72vw;max-width:220px;}
 }
 
+
+/* V29: mobile composition; desktop visuals and native cinematic scroll untouched. */
+.origin-highlight{display:contents;}
+.origin-highlight p + p{margin-top:16px;}
+.mobile-cta-slot{display:none;}
+@media(max-width:720px){
+ .hero-scroll-shell .hero{overflow:hidden;}
+ .hero-inner{display:flex!important;flex-direction:column;align-items:stretch;gap:0;padding:0 0 32px!important;}
+ .hero-stage{order:-2;display:block!important;position:relative!important;inset:auto!important;
+  width:100vw!important;max-width:none!important;height:auto!important;min-height:0!important;
+  flex:none;margin:0 0 0 calc(50% - 50vw)!important;padding:12px 0 0!important;
+  transform:none!important;overflow:visible!important;}
+ .hero-stage img{display:block!important;width:100%!important;height:auto!important;
+  max-width:100%!important;max-height:none!important;object-fit:contain!important;
+  object-position:center top!important;transform:none!important;filter:none!important;}
+ .hero-heading{order:-1;position:relative;z-index:2;margin:-6px 0 0!important;padding:0!important;transform:none!important;}
+ .hero-eyebrow{display:none!important;}
+ .hero-heading h1{margin:0!important;line-height:1.04;font-size:clamp(33px,9.3vw,56px);
+  letter-spacing:-.075em;white-space:normal;}
+ .hero-lede{margin:7px 0 0!important;line-height:1.16;font-size:clamp(20px,5.2vw,29px);}
+ .hero-copy{order:0;margin:13px 0 0!important;padding:0!important;transform:none!important;}
+ .hero-support{margin:0!important;line-height:1.65;}
+ .hero-cta-row{margin-top:21px;}
+ .origin .copy{margin-top:23px;}
+ .origin-highlight{display:block;margin:26px 0 0;padding:24px 22px;
+  background:linear-gradient(145deg,#fff,#e9f1ff);border-left:4px solid #155eef;
+  border-radius:0 17px 17px 0;box-shadow:0 12px 35px rgba(16,36,90,.065);}
+ .origin-highlight p{margin:0;color:#283755;line-height:1.65;}
+ .origin-highlight p:first-child{color:#17177e;font-size:17px;line-height:1.45;}
+ .origin-highlight p + p{margin-top:15px;}
+ .business-card .business-content > .business-link{display:none!important;}
+ .mobile-cta-slot{display:flex;justify-content:flex-start;align-items:center;padding:19px 22px 26px;width:100%;}
+ .mobile-cta-slot .mobile-business-link{display:inline-flex!important;min-height:50px;max-width:100%;}
+ .cinematic-card .cinematic-pin{display:flex!important;flex-direction:column;}
+ .cinematic-card .cinematic-visual{order:1;}
+ .cinematic-card .cinematic-copy{order:0;}
+ .cinematic-card .mobile-cta-slot{order:2;}
+ .websites .mobile-cta-slot{background:#f2f6ff;}
+ .jobpunter .mobile-cta-slot{background:#101310;}
+ .uuda .mobile-cta-slot{background:#edf9fc;}
+ .future-grid{display:flex!important;flex-direction:column;align-items:stretch;gap:0!important;}
+ .future-text{display:contents;}
+ .future-text > .section-head{order:0;margin:0;}
+ .future-text > h2{order:1;margin-top:25px;margin-bottom:0;}
+ .future-visual-shell{order:2;position:relative;margin:19px 0 18px;padding:0!important;}
+ .future-art{min-height:0!important;}
+ .future-art img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;}
+ .future-text > .copy{order:3;margin:0;}
+ .future-text > .future-close{order:4;margin:23px 0 0;}
+ .footer-right{display:flex!important;flex-direction:column;gap:0!important;}
+ .footer-right > .footer-links-group{width:100%;padding:23px 0;border-top:1px solid rgba(255,255,255,.13);}
+ .footer-right > .footer-links-group:first-child{border-top:0;padding-top:0;}
+ .footer-links-group h3{margin-bottom:14px;}
+ .footer-contact h3[style]{display:block;margin:29px 0 15px!important;
+  padding-top:23px;border-top:1px solid rgba(255,255,255,.13);}
+}
+@media(min-width:721px) and (max-width:960px){
+ .origin-highlight{display:block;margin-top:18px;padding:20px 22px;
+  border-left:3px solid #155eef;background:#f6f9ff;border-radius:0 14px 14px 0;}
+ .origin-highlight p + p{margin-top:12px;}
+}
+
 </style>
 </head>
 <body>
@@ -1264,8 +1326,7 @@
           <div class="copy">
             <p class="origin-subtitle">An idea. A question. A problem that needs solving.</p>
             <p>Sometimes, the puzzle looks bigger than anything we've taken on before. There isn't always a perfect plan. Most times, there's just enough conviction to take a chance, make a start, and figure things out along the way.</p>
-            <p>That's the thinking behind GoReallyBig.</p>
-            <p>Rooted in broadcasting and product management, and driven by the belief that big ideas should feel less intimidating and more achievable.</p>
+            <div class="origin-highlight"><p><strong>That's the thinking behind GoReallyBig.</strong></p><p>Rooted in broadcasting and product management, and driven by the belief that big ideas should feel less intimidating and more achievable.</p></div>
           </div>
           <p class="origin-close">A little courage. A little curiosity.<br>And the willingness to begin.</p>
         </div>
@@ -1315,7 +1376,8 @@
                 <div class="cinematic-count" aria-hidden="true">01 / 03</div>
               </div>
             </div>
-          </article>
+
+            <div class="mobile-cta-slot"><a class="business-link mobile-business-link" href="https://goreallybig.com" target="_blank" rel="noopener noreferrer">Explore GoReallyBig Websites <span aria-hidden="true">↗</span></a></div>          </article>
 
           <article class="business-card jobpunter">
             <div class="business-content">
@@ -1335,7 +1397,8 @@
                 <img src="assets/jp-prep-plan-full.png" alt="JobPunter interview coaching and preparation plan" loading="lazy">
               </div>
             </div>
-          </article>
+
+            <div class="mobile-cta-slot"><a class="business-link mobile-business-link" href="https://jobpuntertest.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore JobPunter <span>↗</span></a></div>          </article>
 
           <article class="business-card uuda cinematic-card" data-cinematic="uuda">
             <div class="cinematic-pin">
@@ -1379,7 +1442,8 @@
                 <div class="cinematic-count" aria-hidden="true">01 / 05</div>
               </div>
             </div>
-          </article>
+
+            <div class="mobile-cta-slot"><a class="business-link mobile-business-link" href="https://uudatest.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore Uuda Studio <span aria-hidden="true">↗</span></a></div>          </article>
         </div>
       </div>
     </section>
