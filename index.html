@@ -1021,37 +1021,39 @@
 }
 
 
-/* V25 — Uuda-only lighting refinement. Black gallery, charcoal device cards,
-   soft cyan backlight behind the upper edge of each keyboard-free device.
-   Decorative effects have no layout height and do not affect cinematic scrolling. */
+/* V26 — stronger-contrast Uuda treatment from approved design direction.
+   Lighter slate exterior, distinctly dark device cards, vivid cyan backlighting.
+   Scope strictly to Uuda; no geometry changes to the cinematic scroll. */
 .business-card.uuda .cinematic-visual {
-  background:linear-gradient(180deg,#07090d 0%,#0a0d12 52%,#06080c 100%)!important;
+  background:
+    radial-gradient(ellipse at 50% 4%, rgba(20,189,214,.12), transparent 52%),
+    linear-gradient(155deg,#354756 0%,#293946 52%,#202d39 100%)!important;
 }
 .business-card.uuda .cinematic-slide {
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  background:linear-gradient(155deg,#1a232d 0%,#151c25 52%,#111821 100%)!important;
-  border:1px solid rgba(165,192,216,.14)!important;
-  box-shadow:0 18px 40px rgba(0,0,0,.27),inset 0 1px 0 rgba(255,255,255,.035)!important;
+  background:linear-gradient(155deg,#121b25 0%,#0e151e 55%,#090f17 100%)!important;
+  border:1px solid rgba(167,217,231,.18)!important;
+  box-shadow:0 20px 46px rgba(0,0,0,.40),inset 0 1px 0 rgba(255,255,255,.04)!important;
 }
-/* Backlight sits BEHIND the mockup, not across the interface screenshot. */
+/* Cyan illuminates the background ABOVE the device frame; not the screen. */
 .business-card.uuda .cinematic-slide::before {
   content:"";
   position:absolute;
-  top:-8%;
-  left:9%;
-  width:82%;
-  height:56%;
+  top:-11%;
+  left:6%;
+  width:88%;
+  height:61%;
   z-index:0;
   pointer-events:none;
   border-radius:50%;
-  background:radial-gradient(ellipse at 50% 18%,
-    rgba(49,204,235,.27) 0%,
-    rgba(21,137,182,.16) 30%,
-    rgba(18,85,136,.06) 53%,
-    transparent 75%);
-  filter:blur(24px);
+  background:radial-gradient(ellipse at 50% 22%,
+    rgba(3,236,249,.52) 0%,
+    rgba(0,194,218,.32) 22%,
+    rgba(0,116,165,.12) 51%,
+    transparent 76%);
+  filter:blur(23px);
 }
 .business-card.uuda .cinematic-slide > .cinematic-desktop,
 .business-card.uuda .cinematic-slide > .cinematic-phone-grid,
@@ -1060,26 +1062,26 @@
   z-index:1;
 }
 .business-card.uuda .cinematic-desktop {
-  background:linear-gradient(160deg,#202b36,#0d1219 62%)!important;
-  border-color:#465462!important;
-  box-shadow:0 18px 40px rgba(0,0,0,.42),0 0 22px rgba(48,192,226,.10),
+  background:linear-gradient(145deg,#17212d,#080c11 70%)!important;
+  border-color:#435465!important;
+  box-shadow:0 20px 46px rgba(0,0,0,.55),0 -8px 26px rgba(0,234,249,.24),
     inset 0 1px 0 rgba(255,255,255,.10)!important;
 }
 .business-card.uuda .cinematic-phone {
-  background:#141b24!important;
-  box-shadow:0 18px 34px rgba(0,0,0,.45),0 0 24px rgba(49,204,235,.12),
-    inset 0 0 0 1px rgba(217,233,248,.11)!important;
+  background:#0a1017!important;
+  box-shadow:0 18px 37px rgba(0,0,0,.54),0 -9px 24px rgba(0,231,243,.22),
+    inset 0 0 0 1px rgba(215,236,244,.14)!important;
 }
 .business-card.uuda .cinematic-slide figcaption {
-  color:#d7e2ee!important;
+  color:#e1ecf4!important;
 }
 @media (max-width:960px),(prefers-reduced-motion:reduce) {
   .business-card.uuda .cinematic-visual {
-    background:linear-gradient(180deg,#07090d,#0b0e14)!important;
+    background:linear-gradient(160deg,#354756,#202d39)!important;
   }
   .business-card.uuda .cinematic-slide::before {
-    filter:blur(18px);
-    opacity:.85;
+    filter:blur(17px);
+    opacity:.88;
   }
 }
 
