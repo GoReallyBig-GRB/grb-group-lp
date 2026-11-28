@@ -756,7 +756,93 @@
       .hero-scroll-shell .hero-stage{transform:none!important;will-change:auto}
     }
 
-  </style>
+  
+/* Group cinematic portfolio: native-scroll pinning; content remains still as art rises. */
+@media (min-width: 961px) and (prefers-reduced-motion: no-preference) {
+  .business-card.cinematic-card {
+    --cinematic-travel: 0px;
+    display: block; height: calc(100svh - 84px + var(--cinematic-travel));
+    min-height: 0; overflow: visible; border-radius: 0;
+    box-shadow: none; border: 0; background: transparent; isolation: auto;
+    transform: none !important; will-change: auto;
+  }
+  .business-card.cinematic-card::before,.business-card.cinematic-card::after { display:none; }
+  .cinematic-card .cinematic-pin {
+    position:sticky;top:84px;height:calc(100svh - 84px);
+    display:grid;grid-template-columns:minmax(320px,40%) minmax(0,60%);
+    overflow:hidden;isolation:isolate;border-radius:32px;
+    border:1px solid rgba(22,34,73,.12);box-shadow:0 16px 55px rgba(12,25,70,.09);
+  }
+  .cinematic-card.websites .cinematic-pin{background:#f2f6ff}
+  .cinematic-card.uuda .cinematic-pin{background:#edf9fc}
+  .cinematic-card .cinematic-copy {
+    padding:clamp(25px,3.3vw,58px);height:100%;
+    justify-content:center;min-width:0;overflow-y:auto;
+    overscroll-behavior:contain;z-index:2;
+  }
+  .cinematic-card .business-link{margin-top:20px}
+  .cinematic-card .cinematic-visual {
+    min-height:0;height:100%;padding:0;display:block;overflow:hidden;
+    border-left:1px solid rgba(18,46,95,.08);
+  }
+  .cinematic-card .cinematic-visual::after { display:none; }
+  .cinematic-viewport {position:relative;height:100%;width:100%;overflow:hidden;}
+  .cinematic-track {display:flex;flex-direction:column;gap:18px;padding:24px 24px 46px;
+    transform:translate3d(0,var(--cinematic-offset,0px),0);will-change:transform;}
+  .cinematic-slide {margin:0;flex:none;min-width:0;display:flex;flex-direction:column;
+    justify-content:center;align-items:center;border-radius:23px;padding:22px 18px 14px;
+    background:rgba(255,255,255,.87);border:1px solid rgba(25,47,90,.08);
+    box-shadow:0 10px 30px rgba(14,28,65,.07);}
+  .cinematic-slide img {display:block;width:100%;height:auto;max-height:min(67svh,640px);object-fit:contain;}
+  .cinematic-slide figcaption{padding:12px 8px 4px;font-size:11px;letter-spacing:.09em;
+    font-weight:850;text-transform:uppercase;color:#44506c;text-align:center;}
+  .uuda .cinematic-slide{background:#0d1015;border-color:rgba(255,255,255,.12);}
+  .uuda .cinematic-slide figcaption{color:#bfccda}
+  .cinematic-count{position:absolute;z-index:5;bottom:18px;right:19px;
+    padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.93);
+    font-size:10px;font-weight:900;letter-spacing:.12em;color:#263b69;
+    box-shadow:0 6px 16px rgba(11,22,56,.11);}
+  .cinematic-card .cinematic-phone-slide{padding:26px 15px 12px;}
+  .cinematic-phone-grid{display:flex;justify-content:center;align-items:center;gap:18px;width:100%}
+  .cinematic-phone{width:min(43%,240px);height:min(55svh,480px);overflow:hidden;
+    border:7px solid #151619;border-radius:30px;background:#090a0e;position:relative;
+    box-shadow:0 18px 34px rgba(0,0,0,.38);}
+  .cinematic-phone img{width:100%;height:120%;max-height:none;object-fit:cover;
+    object-position:50% 48%;transform:translateY(-4.2%);}
+  .cinematic-hint{font-size:11px!important;font-weight:850;letter-spacing:.11em;
+    text-transform:uppercase;opacity:.62!important;margin-top:22px!important;}
+}
+@media (max-width:960px),(prefers-reduced-motion:reduce){
+  .cinematic-card{display:block!important;overflow:hidden;}
+  .cinematic-pin{display:block;}
+  .cinematic-card .cinematic-visual{display:block;padding:16px;min-height:0;}
+  .cinematic-viewport{width:100%;height:auto;overflow:visible;}
+  .cinematic-track{transform:none!important;display:grid;gap:16px;}
+  .cinematic-slide{padding:16px;border-radius:18px;background:rgba(255,255,255,.9);
+    margin:0;box-shadow:0 8px 25px rgba(10,23,65,.07);min-width:0;}
+  .cinematic-slide img{width:100%;height:auto;object-fit:contain;}
+  .cinematic-slide figcaption{font-size:11px;font-weight:800;letter-spacing:.08em;
+    text-transform:uppercase;text-align:center;margin-top:9px;}
+  .uuda .cinematic-slide{background:#101216;color:#fff;}
+  .cinematic-phone-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;max-width:540px;margin:0 auto;}
+  .cinematic-phone{height:auto;aspect-ratio:0.53;overflow:hidden;border:5px solid #1b1b1e;
+    border-radius:23px;background:#0b0d11;}
+  .cinematic-phone img{width:100%;height:120%;object-fit:cover;object-position:center 48%;
+    max-width:none;transform:translateY(-4.2%);}
+  .cinematic-count,.cinematic-hint{display:none!important;}
+}
+@media (min-width: 961px) and (max-height:730px) and (prefers-reduced-motion:no-preference){
+ .cinematic-card .cinematic-copy{padding:20px 32px}
+ .cinematic-card .business-content .category{margin-bottom:8px}
+ .cinematic-card .product-wordmark{margin-bottom:12px;padding-bottom:10px}
+ .cinematic-card .business-content h3{font-size:clamp(25px,2.5vw,36px);margin-bottom:14px}
+ .cinematic-card .business-content p{font-size:13px;line-height:1.55}
+ .cinematic-card .business-content p + p{margin-top:8px}
+ .cinematic-card .cinematic-hint{display:none}
+}
+
+</style>
 </head>
 <body>
   <a class="skip-link" href="#where-we-are">Skip to Our Work</a>
@@ -827,22 +913,35 @@
         <p class="businesses-intro">GoReallyBig brings together businesses and digital products built around different needs, with a shared interest in making useful things easier to do.</p>
 
         <div class="card-stack">
-          <article class="business-card websites">
-            <div class="business-content">
-              <span class="category">01 / Digital business services</span>
-              <div class="product-wordmark">GoReallyBig <span>Websites</span></div>
-              <h3>Look the part.<br>Mean business.</h3>
-              <p>Professional websites that help businesses establish credibility, get found online, and turn visitors into customers.</p>
-              <p>From a first website to a complete makeover, the focus is on making a business look as capable online as it is in real life.</p>
-              <a class="business-link" href="https://goreallybig.com" target="_blank" rel="noopener noreferrer">Explore GoReallyBig Websites <span>↗</span></a>
-            </div>
-            <div class="business-visual">
-              <div class="asset-heading"><span>GoReallyBig Websites</span><span>Digital presence</span></div>
-              <div class="website-frame">
-                <div class="website-shot">
-                  <img loading="lazy" decoding="async" src="assets/website-showcase.png" alt="GoReallyBig Websites showcase featuring a premium responsive beauty studio website displayed on tablet and mobile.">
+          <article class="business-card websites cinematic-card" data-cinematic="websites">
+            <div class="cinematic-pin">
+              <div class="business-content cinematic-copy">
+                <span class="category">01 / Digital business services</span>
+                <div class="product-wordmark">GoReallyBig <span>Websites</span></div>
+                <h3>Look the part.<br>Mean business.</h3>
+                <p>Professional websites that help businesses establish credibility, get found online, and turn visitors into customers.</p>
+                <p>From a first website to a complete makeover, the focus is on making a business look as capable online as it is in real life.</p>
+                <a class="business-link" href="https://goreallybig.com" target="_blank" rel="noopener noreferrer">Explore GoReallyBig Websites <span aria-hidden="true">↗</span></a>
+                <p class="cinematic-hint" aria-hidden="true">Scroll to explore the work ↓</p>
+              </div>
+              <div class="business-visual cinematic-visual">
+                <div class="cinematic-viewport">
+                  <div class="cinematic-track">
+                    <figure class="cinematic-slide">
+                      <img src="assets/website-showcase.png" alt="Premium beauty studio website in a responsive tablet and mobile mockup" loading="lazy" decoding="async">
+                      <figcaption>Beauty &amp; lifestyle · Responsive website</figcaption>
+                    </figure>
+                    <figure class="cinematic-slide">
+                      <img src="assets/website-biya.png" alt="Biliya View Resort and Spa website displayed on laptop and smartphone" loading="lazy" decoding="async">
+                      <figcaption>Hospitality · Biliya View Resort &amp; Spa</figcaption>
+                    </figure>
+                    <figure class="cinematic-slide">
+                      <img src="assets/website-healthcare.png" alt="Riverside Premium Hospital website displayed on laptop and smartphone" loading="lazy" decoding="async">
+                      <figcaption>Healthcare · Riverside Premium Hospital</figcaption>
+                    </figure>
+                  </div>
                 </div>
-                <div class="website-badge">Mobile + desktop</div>
+                <div class="cinematic-count" aria-hidden="true">01 / 03</div>
               </div>
             </div>
           </article>
@@ -867,24 +966,46 @@
             </div>
           </article>
 
-          <article class="business-card uuda">
-            <div class="business-content">
-              <span class="category">03 / Audio production technology</span>
-              <div class="product-wordmark">Uuda <span>Studio</span></div>
-              <h3>Your audio studio.<br>Wherever you are.</h3>
-              <p>A professional, browser-based workspace for editing and processing audio, generating AI voiceovers, working with remote voice talent, and recording podcasts or broadcasts with remote guests.</p>
-              <p>From the first recording to the finished production, Uuda Studio brings the work together.</p>
-              <a class="business-link" href="https://uudatest.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore Uuda Studio <span>↗</span></a>
-            </div>
-            <div class="business-visual">
-              <div class="asset-heading"><span>Uuda Studio</span><span>Professional audio workflow</span></div>
-              <div class="uuda-stage">
-                <div class="uuda-panel">
-                  <img class="screen" src="assets/uuda-real.webp" alt="Uuda Studio digital audio waveform editing interface" loading="lazy">
+          <article class="business-card uuda cinematic-card" data-cinematic="uuda">
+            <div class="cinematic-pin">
+              <div class="business-content cinematic-copy">
+                <span class="category">03 / Audio production technology</span>
+                <div class="product-wordmark">Uuda <span>Studio</span></div>
+                <h3>Your audio studio.<br>Wherever you are.</h3>
+                <p>A professional, browser-based workspace for editing and processing audio, generating AI voiceovers, working with remote voice talent, and recording podcasts or broadcasts with remote guests.</p>
+                <p>From the first recording to the finished production, Uuda Studio brings the work together.</p>
+                <a class="business-link" href="https://uudatest.goreallybig.com" target="_blank" rel="noopener noreferrer">Explore Uuda Studio <span aria-hidden="true">↗</span></a>
+                <p class="cinematic-hint" aria-hidden="true">Scroll to explore the studio ↓</p>
+              </div>
+              <div class="business-visual cinematic-visual">
+                <div class="cinematic-viewport">
+                  <div class="cinematic-track">
+                    <figure class="cinematic-slide">
+                      <img src="assets/uuda-real.webp" alt="Uuda Studio professional browser-based audio editor workspace" loading="lazy" decoding="async">
+                      <figcaption>Professional audio editor workspace</figcaption>
+                    </figure>
+                    <figure class="cinematic-slide">
+                      <img src="assets/live-with-participant.png" alt="Uuda Studio live production room with host and remote participants" loading="lazy" decoding="async">
+                      <figcaption>Live studio · Remote participants</figcaption>
+                    </figure>
+                    <figure class="cinematic-slide">
+                      <img src="assets/live-with-chat.png" alt="Uuda Studio desktop live session and participant chat sidebar" loading="lazy" decoding="async">
+                      <figcaption>Live studio · Session chat</figcaption>
+                    </figure>
+                    <figure class="cinematic-slide">
+                      <img src="assets/live-add-participant.png" alt="Uuda Studio invitation controls for a live recording session" loading="lazy" decoding="async">
+                      <figcaption>Live studio · Invite collaborators</figcaption>
+                    </figure>
+                    <figure class="cinematic-slide cinematic-phone-slide">
+                      <div class="cinematic-phone-grid">
+                        <div class="cinematic-phone"><img src="assets/Live-Mobile.jpeg" alt="Uuda Studio mobile live-session view" loading="lazy" decoding="async"></div>
+                        <div class="cinematic-phone"><img src="assets/Live-Mobile2.jpeg" alt="Uuda Studio mobile session with multiple guests" loading="lazy" decoding="async"></div>
+                      </div>
+                      <figcaption>Live studio · Mobile guest experience</figcaption>
+                    </figure>
+                  </div>
                 </div>
-                <div class="uuda-logo-plate">
-                  <img src="assets/uuda-primary.webp" alt="Uuda Studio primary logo with gold mark, white Uuda and cyan Studio wordmark" loading="lazy">
-                </div>
+                <div class="cinematic-count" aria-hidden="true">01 / 05</div>
               </div>
             </div>
           </article>
@@ -1048,6 +1169,60 @@
       desktop.addEventListener?.('change',measure);
       reduceMotion.addEventListener?.('change',measure);
       if(artImage.complete) measure(); else artImage.addEventListener('load',measure,{once:true});
+      window.addEventListener('load',measure,{once:true});
+      requestAnimationFrame(measure);
+    })();
+
+    // Portfolio reveal extends the hero's cinematic native-scroll interaction.
+    // No wheel or touch listeners: browser scroll drives both directions.
+    (() => {
+      const cards=[...document.querySelectorAll('.cinematic-card')];
+      const desktop=window.matchMedia('(min-width:961px)');
+      const reduced=window.matchMedia('(prefers-reduced-motion:reduce)');
+      if(!cards.length)return;
+      let pending=0;
+      const enabled=()=>desktop.matches && !reduced.matches;
+      function measure(){
+        for(const card of cards){
+          const track=card.querySelector('.cinematic-track');
+          const viewport=card.querySelector('.cinematic-viewport');
+          card.style.setProperty('--cinematic-offset','0px');
+          if(!enabled()){
+            card.style.removeProperty('--cinematic-travel');
+            card.dataset.travel='0';
+            continue;
+          }
+          // Real rendered gallery height determines how long copy remains pinned.
+          const travel=Math.max(0,Math.round(track.scrollHeight-viewport.clientHeight));
+          card.dataset.travel=String(travel);
+          card.style.setProperty('--cinematic-travel',travel+'px');
+        }
+        render();
+      }
+      function render(){
+        pending=0;
+        if(!enabled())return;
+        const nav=document.querySelector('.nav');
+        const navHeight=nav?.getBoundingClientRect().height||84;
+        for(const card of cards){
+          const travel=Number(card.dataset.travel)||0;
+          const progress=Math.max(0,Math.min(travel,navHeight-card.getBoundingClientRect().top));
+          card.style.setProperty('--cinematic-offset',(-progress)+'px');
+          const slides=[...card.querySelectorAll('.cinematic-slide')];
+          const firstTop=slides[0]?.offsetTop||0;
+          const center=progress+(card.querySelector('.cinematic-viewport')?.clientHeight||0)*.48;
+          let slideNum=1;
+          slides.forEach((slide,i)=>{if(slide.offsetTop-firstTop<=center)slideNum=i+1;});
+          const count=card.querySelector('.cinematic-count');
+          if(count)count.textContent=String(slideNum).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+        }
+      }
+      function schedule(){if(!pending)pending=requestAnimationFrame(render);}
+      window.addEventListener('scroll',schedule,{passive:true});
+      window.addEventListener('resize',measure,{passive:true});
+      desktop.addEventListener?.('change',measure);
+      reduced.addEventListener?.('change',measure);
+      cards.forEach(card=>card.querySelectorAll('img').forEach(img=>{if(!img.complete)img.addEventListener('load',measure,{once:true});}));
       window.addEventListener('load',measure,{once:true});
       requestAnimationFrame(measure);
     })();
