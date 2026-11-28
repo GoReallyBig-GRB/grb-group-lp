@@ -1315,7 +1315,7 @@
   width:100%;
   align-items:stretch;
 }
-.business-card.websites .cinematic-slide > img{
+.business-card.websites .cinematic-slide > .website-artwork > img{
   width:100%;
   height:clamp(245px,31vw,440px);
   max-height:none;
@@ -1332,7 +1332,7 @@
 }
 .future-emphasis{display:contents;}
 @media(max-width:960px){
-  .business-card.websites .cinematic-slide > img{
+  .business-card.websites .cinematic-slide > .website-artwork > img{
     height:clamp(225px,54vw,390px);
     max-height:none;
     object-fit:contain;
@@ -1378,7 +1378,7 @@
     align-items:stretch;
     justify-content:center;
   }
-  .business-card.websites .cinematic-slide > img{
+  .business-card.websites .cinematic-slide > .website-artwork > img{
     display:block;
     width:100%;
     height:clamp(210px,65vw,340px);
@@ -1562,6 +1562,35 @@
   .future .section-head .dash{background:#17177e;}
 }
 
+
+/* V37 — size the visible website devices, not their oversized canvases. */
+.business-card.websites .website-artwork{display:contents;}
+@media(max-width:720px){
+  .business-card.websites .cinematic-slide{
+    padding-block:10px 12px;
+  }
+  .business-card.websites .website-artwork{
+    display:block;position:relative;width:100%;
+    height:clamp(180px,52vw,290px);
+    overflow:hidden;flex:none;
+    --mockup-scale:1;--mockup-x:0%;
+  }
+  .business-card.websites .website-artwork--1{--mockup-x:-1.5%;}
+  .business-card.websites .website-artwork--2{--mockup-scale:1.07;--mockup-x:1.5%;}
+  .business-card.websites .website-artwork--3{--mockup-scale:1.22;}
+  .business-card.websites .cinematic-slide > .website-artwork > img{
+    position:absolute;top:50%;left:50%;
+    width:100%;height:clamp(210px,65vw,340px);
+    max-width:none;max-height:none!important;
+    object-fit:contain;object-position:center;
+    transform:translate(calc(-50% + var(--mockup-x)),-50%) scale(var(--mockup-scale));
+    transform-origin:center;
+  }
+  .business-card.websites .cinematic-slide > figcaption{
+    min-height:30px;margin:2px 0 0;padding:5px 3px 0;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1648,15 +1677,15 @@
                 <div class="cinematic-viewport">
                   <div class="cinematic-track">
                     <figure class="cinematic-slide">
-                      <img src="assets/website-showcase.png" alt="Premium beauty studio website in a responsive tablet and mobile mockup" loading="lazy" decoding="async">
+                      <div class="website-artwork website-artwork--1"><img src="assets/website-showcase.png" alt="Premium beauty studio website in a responsive tablet and mobile mockup" loading="lazy" decoding="async"></div>
                       <figcaption>Beauty &amp; lifestyle · Responsive website</figcaption>
                     </figure>
                     <figure class="cinematic-slide">
-                      <img src="assets/website-biya.png" alt="Biliya View Resort and Spa website displayed on laptop and smartphone" loading="lazy" decoding="async">
+                      <div class="website-artwork website-artwork--2"><img src="assets/website-biya.png" alt="Biliya View Resort and Spa website displayed on laptop and smartphone" loading="lazy" decoding="async"></div>
                       <figcaption>Hospitality · Biliya View Resort &amp; Spa</figcaption>
                     </figure>
                     <figure class="cinematic-slide">
-                      <img src="assets/website-healthcare.png" alt="Riverside Premium Hospital website displayed on laptop and smartphone" loading="lazy" decoding="async">
+                      <div class="website-artwork website-artwork--3"><img src="assets/website-healthcare.png" alt="Riverside Premium Hospital website displayed on laptop and smartphone" loading="lazy" decoding="async"></div>
                       <figcaption>Healthcare · Riverside Premium Hospital</figcaption>
                     </figure>
                   </div>
