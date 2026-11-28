@@ -1469,12 +1469,27 @@
 }
 
 
-/* V31 — match accepted mobile screenshot: intentional crown crop at nav edge.
-   Negative top margin crops the top of the original image inside the existing
-   hero overflow, and pulls the caption/CTA up by the same distance. */
+/* V32 — softer mobile overlap: restore part of the crown and let the
+   top of the artwork show through a translucent header only at hero start.
+   Keep original artwork, scale and desktop behavior unchanged. */
 @media(max-width:720px){
+  .hero-scroll-shell,
+  .hero-scroll-shell .hero{
+    overflow:visible!important;
+  }
   .hero-scroll-shell .hero-stage{
-    margin-top:-36px!important;
+    margin-top:-18px!important;
+  }
+  .nav{
+    background:#fff!important;
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+    transition:background-color .2s ease,backdrop-filter .2s ease;
+  }
+  .nav.nav--hero-overlay{
+    background:rgba(255,255,255,.88)!important;
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
   }
 }
 
@@ -1726,6 +1741,23 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile hero: translucent header only at the start of the page.
+    // The artwork extends beneath it; solid white returns upon scrolling.
+    (() => {
+      const nav = document.querySelector('.nav');
+      const hero = document.querySelector('#home');
+      if (!nav || !hero) return;
+      const updateHeader = () => {
+        const overHeroStart = window.innerWidth <= 720
+          && window.scrollY < 24
+          && hero.getBoundingClientRect().bottom > nav.getBoundingClientRect().bottom;
+        nav.classList.toggle('nav--hero-overlay', overHeroStart);
+      };
+      window.addEventListener('scroll', updateHeader, {passive:true});
+      window.addEventListener('resize', updateHeader, {passive:true});
+      updateHeader();
+    })();
 
     const menu = document.querySelector('.nav-menu');
     const links = document.querySelector('.nav-links');
