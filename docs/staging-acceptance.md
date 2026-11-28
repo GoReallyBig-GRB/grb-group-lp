@@ -23,23 +23,32 @@ This checklist documents changes applied to the **staging** branch. The public-f
 ## Desktop acceptance
 
 - [ ] Review Uuda Studio visual once the genuine replacement screenshot is available.
-- [ ] Confirm the Uuda logo is fully above the screenshot, not overlapping it.
-- [ ] Inspect footer layout, email and social icons at desktop breakpoints.
-- [ ] Check social links against the official GoReallyBig accounts.
+- [x] Confirm the Uuda logo is positioned above the waveform interface rather than covering the waveform (desktop full-page render; replacement image still pending).
+- [x] Inspect footer layout, email and social icons at 1440px desktop width (browser-rendered at the footer). Additional breakpoint QA remains outstanding.
+- [x] Check social links against the official GoReallyBig accounts (exact destinations copied from `goreallybig-website/index.html`).
 - [ ] Confirm the cinematic desktop hero scroll, reverse scroll and CTA alignment.
 - [ ] Confirm hover states, keyboard navigation and focus visibility.
-- [ ] Review all three product cards for consistent visual hierarchy.
+- [x] Review product cards in a rendered full-page desktop view with images requested; Uuda replacement screenshot and explicit approval remain open.
 
 ## Operational acceptance
 
 - [ ] Confirm `info@goreallybig.com` receives test email and can reply using the same address.
 - [ ] Validate the external product previews and destination readiness.
 - [ ] Check actual HTTP response headers include `X-Robots-Tag: noindex` on staging.
-- [ ] Confirm HTTPS, certificate status and domain resolution.
+- [x] Confirm HTTPS, certificate status and Cloudflare custom-domain validation (Cloudflare Pages reports `active` and deployment `success`).
 - [ ] Check Cloudflare Web Analytics receives events.
-- [ ] Audit image transfer size and consider optimized modern variants of the largest images.
+- [x] Audit selected image transfer sizes: `website-showcase.png` ~2.20 MB, `origin-cube.png` ~1.29 MB, `hero-giant-tight.png` ~0.82 MB, `uuda-real.webp` ~0.07 MB. Compression/replacement of the large PNGs remains a separate task.
 - [ ] Verify Core Web Vitals on actual desktop and mobile devices.
 - [ ] Configure a monitored availability check for staging and production endpoints.
+
+## Browser QA evidence (2026-11-28)
+
+- Browser-rendered at **1440 × 900**: hero headline and CTA composition preserved; no horizontal document overflow observed.
+- The Background cube artwork loads and displays correctly when scrolled into view.
+- The footer logo, contact address and all five social icons load correctly when the footer is brought into view.
+- A full-page screenshot without visiting off-screen sections leaves some lazy-loaded images blank. This is a **capture limitation**, not evidence that the assets are missing: direct asset checks return HTTP 200.
+- The Group page remains staging-only and blocked from indexing. Its product links deliberately use the currently agreed preview destinations.
+- Remaining visual approvals: replacement Uuda Studio screenshot; cinematic hero transition/reverse behavior; hover, keyboard and focus tests; mobile optimization after desktop sign-off.
 
 ## Production cutover — not done
 
