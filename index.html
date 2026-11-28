@@ -757,6 +757,14 @@
     }
 
   
+/* Cinematic section scroll fix: allow sticky children to pin through the
+   entire measured gallery travel. overflow:hidden on .section was creating
+   a non-scrolling sticky containing block, causing early release and blank space. */
+@media (min-width: 961px) and (prefers-reduced-motion: no-preference) {
+  .section.businesses {overflow:clip; padding-bottom:0;}
+  .businesses .card-stack {gap:0;}
+  .cinematic-card .cinematic-copy {overflow:visible;overscroll-behavior:auto;}
+}
 /* Group cinematic portfolio: native-scroll pinning; content remains still as art rises. */
 @media (min-width: 961px) and (prefers-reduced-motion: no-preference) {
   .business-card.cinematic-card {
@@ -1186,14 +1194,21 @@
         for(const card of cards){
           const track=card.querySelector('.cinematic-track');
           const viewport=card.querySelector('.cinematic-viewport');
-          card.style.setProperty('--cinematic-offset','0px');
           if(!enabled()){
+            card.style.setProperty('--cinematic-offset','0px');
             card.style.removeProperty('--cinematic-travel');
             card.dataset.travel='0';
             continue;
           }
           // Real rendered gallery height determines how long copy remains pinned.
-          const travel=Math.max(0,Math.round(track.scrollHeight-viewport.clientHeight));
+          // The panel releases only after the last complete slide (including
+          // its caption) is inside the viewport. This is the exact amount of
+          // natural document scroll reserved by the parent card.
+          const last=track.querySelector('.cinematic-slide:last-child');
+          const trackStyle=getComputedStyle(track);
+          const bottomPadding=parseFloat(trackStyle.paddingBottom)||0;
+          const finalBottom=last ? last.offsetTop+last.offsetHeight+bottomPadding : track.scrollHeight;
+          const travel=Math.max(0,Math.ceil(finalBottom-viewport.clientHeight));
           card.dataset.travel=String(travel);
           card.style.setProperty('--cinematic-travel',travel+'px');
         }
@@ -1209,10 +1224,9 @@
           const progress=Math.max(0,Math.min(travel,navHeight-card.getBoundingClientRect().top));
           card.style.setProperty('--cinematic-offset',(-progress)+'px');
           const slides=[...card.querySelectorAll('.cinematic-slide')];
-          const firstTop=slides[0]?.offsetTop||0;
-          const center=progress+(card.querySelector('.cinematic-viewport')?.clientHeight||0)*.48;
+          const center=progress+(card.querySelector('.cinematic-viewport')?.clientHeight||0)*.52;
           let slideNum=1;
-          slides.forEach((slide,i)=>{if(slide.offsetTop-firstTop<=center)slideNum=i+1;});
+          slides.forEach((slide,i)=>{if(slide.offsetTop<=center)slideNum=i+1;});
           const count=card.querySelector('.cinematic-count');
           if(count)count.textContent=String(slideNum).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
         }
