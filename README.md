@@ -46,7 +46,7 @@ The interaction uses ordinary browser scrolling rather than intercepting wheel o
 ## Technical overview
 
 - **Stack:** static HTML, CSS and vanilla JavaScript; no framework or package manager is required by the current repository.
-- **Entry point:** `index.html`, which contains the page markup, styles and interaction code.
+- **Entry point:** `index.html` contains semantic page markup; `assets/site.css` contains the consolidated responsive styles, and `assets/site.js` contains the navigation and scroll interactions.
 - **Assets:** `assets/`, containing brand logos, hero illustrations, portfolio screenshots and other site images.
 - **Navigation:** same-page anchor links; business links open the associated destinations.
 - **Responsive behavior:** CSS layouts for desktop and smaller screens, mobile navigation, and horizontal viewing of JobPunter's phone screenshots on narrow devices.
@@ -150,3 +150,12 @@ The repository currently contains the landing page implementation and its visual
 
 **GoReallyBig Group**  
 *Everything big starts somewhere.*
+
+
+## Mobile release hardening (November 2026)
+
+- Reserved intrinsic `width` and `height` for every page image to prevent content jumping during lazy loading.
+- Converted large showcase, hero, and production screenshots to optimised WebP while retaining visual source files in Git history.
+- Horizontal JobPunter gallery supports touch swipes, keyboard focus, and arrow keys.
+- Removed unused historic selectors and declarations shadowed by the same selector in the same media context; retained desktop cinematic-scroll geometry.
+- Staging preserves `noindex` in both HTML and `_headers`. Production rollout must review `robots.txt`, `_headers`, canonical/OG URLs, and outbound product links separately.
